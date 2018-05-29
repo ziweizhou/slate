@@ -1,15 +1,12 @@
 ---
-title: API Reference
+title: Airhost Checkin API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
-  - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='mailto:hello@airhost.co'>Email Us to gain the API key</a>
 
 includes:
   - errors
@@ -19,221 +16,397 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Airhost Checkin API! YOu can use our API to access basic booking information and guest informations.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language bindings in Ruby! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
-> To authorize, use this code:
+> To generate proper authentication header, use this code:
 
 ```ruby
-require 'kittn'
+require 'base64'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
+base64_encoded_string = Base64.encode64("username:password")
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
-```javascript
-const kittn = require('kittn');
+> Make sure to replace `APIKEY_FROM_AIRHOST` with your API key.
 
-let api = kittn.authorize('meowmeowmeow');
-```
+If you don't have one, please contact [Airhost Support](mailto:hello@airhost.co)
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Airhost expects for the API key plus the Authentication Key to be included in all API requests to the server in a header that looks like the following:
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+`Authorization: Basic Base64(username:password)`
+`APPID: APIKEY_FROM_AIRHOST`
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+Base64(username:password) is host's username and password with the character ":" in the middle, then encode with base64 format.
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
 </aside>
 
-# Kittens
+# Checkin Setting
 
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Checkin Setting for a specific property
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "https://cloud.airhost.co/api/v1/houses/:id/checkin_settings"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+    "name": "AirHost Hotel No. 1",
+    "welcome_msg": "Welcome to AirHost Hotel ^^",
+    "terms": "https://goo.gl/eydXgi",
+    "hotel_img": "https://s3-ap-northeast-1.amazonaws.com/triosky-airhost/uploads/house/292/app_background_img/TS_Hotel_King_lowrez.jpg",
+    "logo": "https://s3-ap-northeast-1.amazonaws.com/triosky-airhost/uploads/house/292/app_logo/icons8-service-bell-96.png",
+    "key_info_img_url": "https://s3-ap-northeast-1.amazonaws.com/triosky-airhost/uploads/house/292/key_info_img/TS_Hotel_King_lowrez.jpg",
+    "key_info_doc_url": "https://goo.gl/QJrtJu",
+    "checkin_type": "self_checkin",
+    "operator_id": null,
+    "checkin_settings":
+    {
+        "fields": [
+        {
+            "name": "photo",
+            "required": "all"
+        },
+        {
+            "name": "name",
+            "required": "all"
+        },
+        {
+            "name": "occupation",
+            "required": "all"
+        },
+        {
+            "name": "postal_code",
+            "required": "all"
+        },
+        {
+            "name": "address",
+            "required": "represent_only"
+        },
+        {
+            "name": "phone",
+            "required": "all"
+        },
+        {
+            "name": "nationality",
+            "required": "all"
+        },
+        {
+            "name": "visa_no",
+            "required": "all"
+        },
+        {
+            "name": "dob",
+            "required": "all"
+        }],
+        "enabled": "1"
+    }
+}
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves checkin setting of a listing.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://cloud.airhost.co/api/v1/houses/:id/checkin_settings`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+id | true | The house's ID
+
+### Return Data Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+name | true | Property Name
+welcome_msg | false | Default greeting message
+terms | false | Terms of Service
+hotel_img | false | Picture of the property
+logo | false | Logo of this property
+key_info_img_url | false | image information related to how to get key
+key_info_doc_url | false | document URL realted to how to get key
+checkin_settings[fields][name] | true | guest detail information fields
+checkin_settings[fields][required] | true | `all` means all guests are required to submit. \n `represent_only` means only the person made the reservation
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+These settings can be set via Airhost PMS UI.
 </aside>
 
-## Get a Specific Kitten
+# Booking
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Search a Booking
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "https://cloud.airhost.co/api/v1/bookings"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+    {
+        "id": 1358,
+        "uid": "HMMJTRSTTE",
+        "guestnum": 3,
+        "summary": "Nikolai Ramstetter (HMMJTRSTTE)",
+        "dtstart": "2018-04-07T16:00:00.000+09:00",
+        "dtend": "2018-04-11T11:00:00.000+09:00",
+        "status": "confirmed",
+        "checkin_type": null,
+        "checkin_status": "checked_in",
+        "source": "airbnb",
+        "user":
+        {
+            "name": "Nikolai Ramstetter",
+            "email": "nikolai-smxiddb2jijh8gjt@guest.airbnb.com"
+        }
+    }],
+    "meta":
+    {
+        "total_pages": 1,
+        "total_count": 1
+    }
+}
+```
+
+This endpoint retrieves all bookings match search query.
+
+### HTTP Request
+
+`GET https://cloud.airhost.co/api/v1/bookings`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+uid | true | Search booking by its OTA confirmation ID
+last_name | false | Search booking by guest last name
+first_name | false | Search booking by guest first name
+
+<aside class="success">
+with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled.
+</aside>
+
+## Complete a Booking's checkin.
+
+```shell
+curl -X POST "https://cloud.airhost.co/api/v1/bookings/:id/completed"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "room_unit": "101",
+  "checkin_information": "Checkin Instructure is at http://goog.gl/abc",
+  "room_code": "123",
+  "wifi_info": "wifi name: hello, wifi password: 1234",
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint mark the booking checkin is completed and receive the details room information.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instructure</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST http://cloud.airhost.co/api/v1/bookings/:id/completed`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+id | The ID of the booking
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+# Guest
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Get All Guests
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+curl "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
-```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+> The above command returns JSON structured like this:
+
+```json
+[{
+    "id": 2,
+    "name": "Tom Phillips",
+    "notes": "awesome",
+    "settings":
+    {
+        "dob": "2018-05-01",
+        "phone": "1234456",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "CEO",
+        "nationality": "Untied States",
+        "postal_code": "123"
+    }
+},
+{
+    "id": 3,
+    "name": "Samanta Phillips",
+    "notes": "sad",
+    "settings":
+    {
+        "dob": "2018-05-17",
+        "phone": "123",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "developer",
+        "nationality": "Untied States",
+        "postal_code": "12345"
+    }
+}]
+```
+
+This endpoint retrieves all guests associate with a booking match search query.
+
+### HTTP Request
+
+`GET https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
+
+
+
+## Create a guest.
+
+```shell
+curl -X POST "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  -data '{
+        "name": "Samanta Phillips",
+        "notes": "test",
+        "dob": "2018-05-17",
+        "phone": "123",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "developer",
+        "nationality": "Untied States",
+        "postal_code": "12345"
+    }'
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": 3,
+    "name": "Samanta Phillips",
+    "notes": "sad",
+    "settings":
+    {
+        "dob": "2018-05-17",
+        "phone": "123",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "developer",
+        "nationality": "Untied States",
+        "postal_code": "12345"
+    }
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint add a guest into this booking
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+booking_id | The ID of the booking
+
+
+## Update a guest.
+
+```shell
+curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests/:id"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  -data '{
+        "name": "Samanta Phillips",
+        "notes": "test",
+        "dob": "2018-05-17",
+        "phone": "123",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "developer",
+        "nationality": "Untied States",
+        "postal_code": "12345"
+    }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 3,
+    "name": "Samanta Phillips",
+    "notes": "sad",
+    "settings":
+    {
+        "dob": "2018-05-17",
+        "phone": "123",
+        "address": "USA",
+        "visa_no": "123456789",
+        "occupation": "developer",
+        "nationality": "Untied States",
+        "postal_code": "12345"
+    }
+}
+```
+
+This endpoint add a guest into this booking
+
+### HTTP Request
+
+`PUT http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests/:id`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+booking_id | The ID of the booking
+id | The id of the guest
+
+
 
