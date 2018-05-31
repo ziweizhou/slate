@@ -6,7 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - ruby
 
 toc_footers:
-  - <a href='mailto:hello@airhost.co'>Email Us to gain the API key</a>
+  - <a href='mailto:hello@airhost.co'>Email Us to obtain the API key</a>
 
 includes:
   - errors
@@ -27,7 +27,6 @@ We have language bindings in Ruby! You can view code examples in the dark area t
 
 ```ruby
 require 'base64'
-
 base64_encoded_string = Base64.encode64("username:password")
 ```
 
@@ -52,6 +51,7 @@ Base64(username:password) is host's username and password with the character ":"
 <aside class="notice">
 You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
 </aside>
+
 
 # Checkin Setting
 
@@ -153,12 +153,80 @@ These settings can be set via Airhost PMS UI.
 
 # Booking
 
+## Retrieve Bookings
+
+```shell
+curl "https://cloud.airhost.co/api/v1/bookings"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  --date '{
+  "house_id": 1,
+  "updated_at": 11111111
+    }
+```
+```ruby
+    updated_at = Time.zone.now.to_i
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+    {
+        "id": 1358,
+        "uid": "HMMJTRSTTE",
+        "guestnum": 3,
+        "summary": "Nikolai Ramstetter (HMMJTRSTTE)",
+        "dtstart": "2018-04-07T16:00:00.000+09:00",
+        "dtend": "2018-04-11T11:00:00.000+09:00",
+        "status": "confirmed",
+        "checkin_type": null,
+        "checkin_status": "checked_in",
+        "source": "airbnb",
+        "user":
+        {
+            "name": "Nikolai Ramstetter",
+            "email": "nikolai-smxiddb2jijh8gjt@guest.airbnb.com"
+        }
+    }],
+    "meta":
+    {
+        "total_pages": 1,
+        "total_count": 1
+    }
+}
+```
+
+This endpoint retrieves all bookings from one house.
+
+### HTTP Request
+
+`GET https://cloud.airhost.co/api/v1/bookings`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+house_id | true | Search booking by House ID
+updated_at | true | bookings updated after this time
+
+<aside class="warning">
+1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
+2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
+</aside>
+
 ## Search a Booking
 
 ```shell
 curl "https://cloud.airhost.co/api/v1/bookings"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
+  --date '{"uid":123,
+  "last_name": "Smith",
+  "first_name": "John",
+  "house_id": 1
+    }'
 ```
 
 
@@ -202,6 +270,7 @@ This endpoint retrieves all bookings match search query.
 
 Parameter | Default | Description
 --------- | ------- | -----------
+house_id | true | Search booking by House ID
 uid | true | Search booking by its OTA confirmation ID
 last_name | false | Search booking by guest last name
 first_name | false | Search booking by guest first name
@@ -231,7 +300,7 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings/:id/completed"
 
 This endpoint mark the booking checkin is completed and receive the details room information.
 
-<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instructure</aside>
+<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instruction</aside>
 
 ### HTTP Request
 
