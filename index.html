@@ -196,20 +196,20 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+    <link href="apidocs/stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="apidocs/stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="apidocs/javascripts/all.js"></script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="apidocs/images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="apidocs/images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
@@ -237,6 +237,9 @@
             <a href="#booking" class="toc-h1 toc-link" data-title="booking">Booking</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#retrieve-bookings" class="toc-h2 toc-link" data-title="retrieve-bookings">Retrieve Bookings</a>
+                  </li>
+                  <li>
                     <a href="#search-a-booking" class="toc-h2 toc-link" data-title="search-a-booking">Search a Booking</a>
                   </li>
                   <li>
@@ -263,7 +266,7 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='mailto:hello@airhost.co'>Email Us to gain the API key</a></li>
+            <li><a href='mailto:hello@airhost.co'>Email Us to obtain the API key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -278,7 +281,6 @@
 <p>To generate proper authentication header, use this code:</p>
 </blockquote>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'base64'</span>
-
 <span class="n">base64_encoded_string</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"username:password"</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
@@ -436,9 +438,79 @@ You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
 <aside class="success">
 These settings can be set via Airhost PMS UI.
 </aside>
-<h1 id='booking'>Booking</h1><h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://cloud.airhost.co/api/v1/bookings"</span>
+<h1 id='booking'>Booking</h1><h2 id='retrieve-bookings'>Retrieve Bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://cloud.airhost.co/api/v1/bookings"</span>
   -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+  --date <span class="s1">'{
+  "house_id": 1,
+  "updated_at": 11111111
+    }
+</span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1358</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HMMJTRSTTE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guestnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter (HMMJTRSTTE)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtstart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T16:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T11:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all bookings from one house.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://cloud.airhost.co/api/v1/bookings</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>house_id</td>
+<td>true</td>
+<td>Search booking by House ID</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>true</td>
+<td>bookings updated after this time</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
+2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
+</aside>
+<h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://cloud.airhost.co/api/v1/bookings"</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+  --date <span class="s1">'{"uid":123,
+  "last_name": "Smith",
+  "first_name": "John",
+  "house_id": 1
+    }'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -470,9 +542,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all bookings match search query.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/bookings</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -480,6 +552,11 @@ These settings can be set via Airhost PMS UI.
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>house_id</td>
+<td>true</td>
+<td>Search booking by House ID</td>
+</tr>
 <tr>
 <td>uid</td>
 <td>true</td>
@@ -516,8 +593,8 @@ with Airhost PMS A unique uid is sent to the guest if the auto message feature i
 </span></code></pre>
 <p>This endpoint mark the booking checkin is completed and receive the details room information.</p>
 
-<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instructure</aside>
-<h3 id='http-request-3'>HTTP Request</h3>
+<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instruction</aside>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/bookings/:id/completed</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -570,9 +647,9 @@ with Airhost PMS A unique uid is sent to the guest if the auto message feature i
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all guests associate with a booking match search query.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -621,7 +698,7 @@ with Airhost PMS A unique uid is sent to the guest if the auto message feature i
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -670,7 +747,7 @@ with Airhost PMS A unique uid is sent to the guest if the auto message feature i
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests/:id</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
