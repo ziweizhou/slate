@@ -58,7 +58,7 @@ You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
 ## Checkin Setting for a specific property
 
 ```shell
-curl "https://cloud.airhost.co/api/v1/houses/:id/checkin_settings"
+curl "https://cloud.airhost.co/api/v1/checkin/houses/:id/settings"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
@@ -125,7 +125,7 @@ This endpoint retrieves checkin setting of a listing.
 
 ### HTTP Request
 
-`GET https://cloud.airhost.co/api/v1/houses/:id/checkin_settings`
+`GET https://cloud.airhost.co/api/v1/checkin/houses/:id/settings`
 
 ### Query Parameters
 
@@ -219,7 +219,7 @@ updated_at | true | bookings updated after this time
 ## Search a Booking
 
 ```shell
-curl "https://cloud.airhost.co/api/v1/bookings"
+curl "https://cloud.airhost.co/api/v1/checkin/bookings"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
   --date '{"uid":123,
@@ -264,7 +264,7 @@ This endpoint retrieves all bookings match search query.
 
 ### HTTP Request
 
-`GET https://cloud.airhost.co/api/v1/bookings`
+`GET https://cloud.airhost.co/api/v1/checkin/bookings`
 
 ### Query Parameters
 
@@ -275,14 +275,15 @@ uid | true | Search booking by its OTA confirmation ID
 last_name | false | Search booking by guest last name
 first_name | false | Search booking by guest first name
 
-<aside class="success">
-with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled.
+<aside class="info">
+1. with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled. <br />
+2. Please note the URL has <b>/checkin</b> in the front.
 </aside>
 
 ## Complete a Booking's checkin.
 
 ```shell
-curl -X POST "https://cloud.airhost.co/api/v1/bookings/:id/completed"
+curl -X POST "https://cloud.airhost.co/api/v1/checkin/bookings/:id/completed"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
@@ -304,13 +305,14 @@ This endpoint mark the booking checkin is completed and receive the details room
 
 ### HTTP Request
 
-`POST http://cloud.airhost.co/api/v1/bookings/:id/completed`
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/completed`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-id | The ID of the booking
+
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
 
 
 # Guest
@@ -318,7 +320,7 @@ id | The ID of the booking
 ## Get All Guests
 
 ```shell
-curl "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests"
+curl "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
@@ -363,7 +365,7 @@ This endpoint retrieves all guests associate with a booking match search query.
 
 ### HTTP Request
 
-`GET https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests`
+`GET https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests`
 
 ### Query Parameters
 
@@ -376,7 +378,7 @@ booking_id | true | The Booking's ID
 ## Create a guest.
 
 ```shell
-curl -X POST "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests"
+curl -X POST "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
   -data '{
@@ -416,19 +418,19 @@ This endpoint add a guest into this booking
 
 ### HTTP Request
 
-`POST http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests`
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-booking_id | The ID of the booking
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
 
 
 ## Update a guest.
 
 ```shell
-curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests/:id"
+curl -X PUT "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id"
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
   -data '{
@@ -468,14 +470,119 @@ This endpoint add a guest into this booking
 
 ### HTTP Request
 
-`PUT http://cloud.airhost.co/api/v1/bookings/:booking_id/checkin_guests/:id`
+`PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id`
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-booking_id | The ID of the booking
-id | The id of the guest
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
+id | true |The ID of the guest
 
 
 
+# Attachment
+
+## Get All Attachments
+
+```shell
+curl "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+[{
+    "id": 2,
+    "remote_item_url": "http://xxxxxx.jpg"
+},
+{
+    "id": 3,
+    "remote_item_url": "http://xxxxxx.jpg"
+}]
+```
+
+This endpoint retrieves all attachments associate with a booking match search query.
+
+### HTTP Request
+
+`GET https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
+guest_id | true |The ID of the guest
+
+
+## Create a attachment.
+
+```shell
+curl -X POST "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  -data '{
+        "remote_item_url": "http://xxxxxx.jpg"
+    }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 3,
+    "remote_item_url": "http://xxxxxx.jpg"
+}
+```
+
+This endpoint add a attachment into this booking
+
+### HTTP Request
+
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments`
+
+### URL Parameters
+
+Parameter | Default| Description
+--------- | ------- | -----------
+booking_id | true |The ID of the booking
+guest_id | true |The ID of the guest
+
+## Update a attachment.
+
+```shell
+curl -X PUT "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  -data '{
+        "id": 3,
+        "remote_item_url": "http://xxxxxx.jpg"
+    }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 3,
+    "remote_item_url": "http://xxxxxx.jpg"
+}
+```
+
+This endpoint add a attachment into this booking
+
+### HTTP Request
+
+`PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id`
+
+### URL Parameters
+
+Parameter | Default| Description
+--------- | ------- | -----------
+booking_id | true |The ID of the booking
+guest_id | true |The ID of the guest
+id | true | The id of the attachment
