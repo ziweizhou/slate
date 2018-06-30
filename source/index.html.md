@@ -526,7 +526,7 @@ curl -X POST "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guest
   -H "Authorization: Basic Base64(username:password)"
   -H "APPID: APIKEY_FROM_AIRHOST"
   -data '{
-        "remote_item_url": "http://xxxxxx.jpg"
+        "item": "image/jpeg;base64,(base64 encoded data)"
     }'
 ```
 
@@ -560,7 +560,7 @@ curl -X PUT "https://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests
   -H "APPID: APIKEY_FROM_AIRHOST"
   -data '{
         "id": 3,
-        "remote_item_url": "http://xxxxxx.jpg"
+        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww....."
     }'
 ```
 
