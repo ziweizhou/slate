@@ -195,6 +195,7 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings"
         "dtend": "2018-04-11T11:00:00.000+09:00",
         "room_id": 123,
         "house_id": 1,
+        "reservation_site": "your site name"
         "user":
         {
             "name": "John Smith",
@@ -216,6 +217,7 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings"
     "dtend": "2018-04-11T11:00:00.000+09:00",
     "room_id": 123,
     "house_id": 1,
+    "reservation_site": "your site name",
     "user":
     {
         "name": "John Smith",
@@ -244,6 +246,7 @@ dtstart | true |  checkin date in ISO 8601 format with timezone.
 dtend | true |  checkout date in ISO 8601 format with timezone.
 room_id | true | room ID from airhost
 house_id | true | house ID from airhost
+reservation_site| false| your website name or company name or the OTA name
 user[name] | true | guest name
 user[email] | true | guest email address
 user[phone] | true | guest phone number
@@ -265,7 +268,7 @@ curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:id"
     "dtend": "2018-04-11T11:00:00.000+09:00",
     "status": "confirmed",
     "checkin_status": "checked_in",
-    "source": "airbnb",
+    "reservation_site": "airbnb",
     "room_id": 123,
     "house_id": 1,
     "user":
@@ -287,7 +290,7 @@ curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:id"
     "dtend": "2018-04-11T11:00:00.000+09:00",
     "status": "confirmed",
     "checkin_status": "checked_in",
-    "source": "airbnb",
+    "reservation_site": "airbnb",
     "room_id": 123,
     "house_id": 1,
     "user":

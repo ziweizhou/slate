@@ -96,7 +96,7 @@ curl "https://test.airhost.co/api/v1/checkin/houses/:id/settings"
         },
         {
             "name": "postal_code",
-            "required": "all"
+            "required": "foreigner_only"
         },
         {
             "name": "address",
@@ -104,7 +104,7 @@ curl "https://test.airhost.co/api/v1/checkin/houses/:id/settings"
         },
         {
             "name": "phone",
-            "required": "all"
+            "required": "hide"
         },
         {
             "name": "nationality",
@@ -147,7 +147,7 @@ logo | false | Logo of this property
 key_info_img_url | false | image information related to how to get key
 key_info_doc_url | false | document URL realted to how to get key
 checkin_settings[fields][name] | true | guest detail information fields
-checkin_settings[fields][required] | true | `all` means all guests are required to submit. \n `represent_only` means only the person made the reservation
+checkin_settings[fields][required] | true | `all` means all guests are required to submit. \n `represent_only` means only the person made the reservation \n `hide` meaning, no need to ask. `foreigner_only` meaning it is for non-Japanese.
 
 <aside class="success">
 These settings can be set via Airhost PMS UI.
@@ -297,7 +297,7 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/completed"
   "room_unit": "101",
   "checkin_information": "Checkin Instructure is at http://goog.gl/abc",
   "room_code": "123",
-  "wifi_info": "wifi name: hello, wifi password: 1234",
+  "key_doc_url": "http://goo.gl/abc",
 }
 ```
 
@@ -316,6 +316,55 @@ Parameter | Default | Description
 --------- | ------- | -----------
 booking_id | true | The Booking's ID
 
+### Return Data Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+room_unit | true | Guest's Room Number
+checkin_information | false | Instruction of How to get Key
+room_code | false | If it is smart lock
+key_doc_url | false | Additional informations.
+
+
+
+## Email a Booking's checkin information.
+
+```shell
+curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/email"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+  --date '{"name": "John Smith",
+  "email": "john@smith.com"
+    }'
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "room_unit": "101",
+  "checkin_information": "Checkin Instructure is at http://goog.gl/abc",
+  "room_code": "123",
+  "key_doc_url": "http://goo.gl/abc",
+}
+```
+
+This endpoint mark the booking checkin is completed and receive the details room information.
+
+<aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instruction</aside>
+
+### HTTP Request
+
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/completed`
+
+### URL Parameters
+
+
+Parameter | Default | Description
+--------- | ------- | -----------
+booking_id | true | The Booking's ID
+name | true | The new recipient's name
+email | true | The new recipient's email
 
 # Guest
 
