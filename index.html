@@ -452,6 +452,61 @@ Test API URL is test.airhost.co
 <td>true</td>
 <td><code>all</code> means all guests are required to submit. \n <code>represent_only</code> means only the person made the reservation \n <code>hide</code> meaning, no need to ask. <code>foreigner_only</code> meaning it is for non-Japanese.</td>
 </tr>
+<tr>
+<td>checkin_settings[name]</td>
+<td>false</td>
+<td>Guest Name</td>
+</tr>
+<tr>
+<td>checkin_settings[photo]</td>
+<td>false</td>
+<td>Guest Passport Photos</td>
+</tr>
+<tr>
+<td>checkin_settings[dob]</td>
+<td>false</td>
+<td>Guest Date of Birth</td>
+</tr>
+<tr>
+<td>checkin_settings[nationality]</td>
+<td>false</td>
+<td>Guest Nationality (2 letters ISO3166)</td>
+</tr>
+<tr>
+<td>checkin_settings[postal_code]</td>
+<td>false</td>
+<td>Guest Postal Code</td>
+</tr>
+<tr>
+<td>checkin_settings[address]</td>
+<td>false</td>
+<td>Guest Address</td>
+</tr>
+<tr>
+<td>checkin_settings[occupation]</td>
+<td>false</td>
+<td>Guest Occupation</td>
+</tr>
+<tr>
+<td>checkin_settings[visa_no]</td>
+<td>false</td>
+<td>Guest Passport/Visa Number</td>
+</tr>
+<tr>
+<td>checkin_settings[phone]</td>
+<td>false</td>
+<td>Guest Phone number</td>
+</tr>
+<tr>
+<td>checkin_settings[last_port_embark]</td>
+<td>false</td>
+<td>Previous Country before arriving here</td>
+</tr>
+<tr>
+<td>checkin_settings[next_port_disembark]</td>
+<td>false</td>
+<td>Next Country will depart to</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -723,7 +778,7 @@ These settings can be set via Airhost PMS UI.
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"visa_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CEO"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Untied States"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">},</span><span class="w">
@@ -738,7 +793,7 @@ These settings can be set via Airhost PMS UI.
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"visa_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Untied States"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}]</span><span class="w">
@@ -768,10 +823,10 @@ These settings can be set via Airhost PMS UI.
         "notes": "test",
         "dob": "2018-05-17",
         "phone": "123",
-        "address": "USA",
+        "address": "123 USA",
         "visa_no": "123456789",
         "occupation": "developer",
-        "nationality": "Untied States",
+        "nationality": "US",
         "postal_code": "12345"
     }'</span>
 </code></pre>
@@ -786,10 +841,10 @@ These settings can be set via Airhost PMS UI.
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"dob"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-17"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 USA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"visa_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"occupation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"developer"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Untied States"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"nationality"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -809,6 +864,61 @@ These settings can be set via Airhost PMS UI.
 <td>booking_id</td>
 <td>true</td>
 <td>The Booking&#39;s ID</td>
+</tr>
+<tr>
+<td>settings[name]</td>
+<td>false</td>
+<td>Guest Name</td>
+</tr>
+<tr>
+<td>settings[photo]</td>
+<td>false</td>
+<td>Guest Passport Photos</td>
+</tr>
+<tr>
+<td>settings[dob]</td>
+<td>false</td>
+<td>Guest Date of Birth</td>
+</tr>
+<tr>
+<td>settings[nationality]</td>
+<td>false</td>
+<td>Guest Nationality (2 letters ISO3166)</td>
+</tr>
+<tr>
+<td>settings[postal_code]</td>
+<td>false</td>
+<td>Guest Postal Code</td>
+</tr>
+<tr>
+<td>settings[address]</td>
+<td>false</td>
+<td>Guest Address</td>
+</tr>
+<tr>
+<td>settings[occupation]</td>
+<td>false</td>
+<td>Guest Occupation</td>
+</tr>
+<tr>
+<td>settings[visa_no]</td>
+<td>false</td>
+<td>Guest Passport/Visa Number</td>
+</tr>
+<tr>
+<td>settings[phone]</td>
+<td>false</td>
+<td>Guest Phone number</td>
+</tr>
+<tr>
+<td>settings[last_port_embark]</td>
+<td>false</td>
+<td>Previous Country before arriving here</td>
+</tr>
+<tr>
+<td>settings[next_port_disembark]</td>
+<td>false</td>
+<td>Next Country will depart to</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-guest'>Update a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id"</span>

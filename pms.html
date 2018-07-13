@@ -475,7 +475,9 @@ These settings can be set via Airhost PMS UI.
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Smith"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_smith@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+        </span><span class="s2">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 test street"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -554,6 +556,16 @@ These settings can be set via Airhost PMS UI.
 <td>user[language]</td>
 <td>true</td>
 <td>guest preferred language, two letters format.</td>
+</tr>
+<tr>
+<td>user[country]</td>
+<td>false</td>
+<td>guest country code</td>
+</tr>
+<tr>
+<td>user[address]</td>
+<td>false</td>
+<td>guest address</td>
 </tr>
 </tbody></table>
 <h2 id='update-a-booking'>Update a Booking.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://cloud.airhost.co/api/v1/bookings/:id"</span>
