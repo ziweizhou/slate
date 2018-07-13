@@ -148,6 +148,17 @@ key_info_img_url | false | image information related to how to get key
 key_info_doc_url | false | document URL realted to how to get key
 checkin_settings[fields][name] | true | guest detail information fields
 checkin_settings[fields][required] | true | `all` means all guests are required to submit. \n `represent_only` means only the person made the reservation \n `hide` meaning, no need to ask. `foreigner_only` meaning it is for non-Japanese.
+checkin_settings[name] | false | Guest Name
+checkin_settings[photo] | false | Guest Passport Photos
+checkin_settings[dob] | false | Guest Date of Birth
+checkin_settings[nationality] | false | Guest Nationality (2 letters ISO3166)
+checkin_settings[postal_code] | false | Guest Postal Code
+checkin_settings[address] | false | Guest Address
+checkin_settings[occupation] | false | Guest Occupation
+checkin_settings[visa_no] | false | Guest Passport/Visa Number
+checkin_settings[phone] | false | Guest Phone number
+checkin_settings[last_port_embark] | false | Previous Country before arriving here
+checkin_settings[next_port_disembark] | false | Next Country will depart to
 
 <aside class="success">
 These settings can be set via Airhost PMS UI.
@@ -391,7 +402,7 @@ curl "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"
         "address": "USA",
         "visa_no": "123456789",
         "occupation": "CEO",
-        "nationality": "Untied States",
+        "nationality": "US",
         "postal_code": "123"
     }
 },
@@ -406,7 +417,7 @@ curl "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"
         "address": "USA",
         "visa_no": "123456789",
         "occupation": "developer",
-        "nationality": "Untied States",
+        "nationality": "US",
         "postal_code": "12345"
     }
 }]
@@ -437,10 +448,10 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
         "notes": "test",
         "dob": "2018-05-17",
         "phone": "123",
-        "address": "USA",
+        "address": "123 USA",
         "visa_no": "123456789",
         "occupation": "developer",
-        "nationality": "Untied States",
+        "nationality": "US",
         "postal_code": "12345"
     }'
 ```
@@ -456,10 +467,10 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
     {
         "dob": "2018-05-17",
         "phone": "123",
-        "address": "USA",
+        "address": "123 USA",
         "visa_no": "123456789",
         "occupation": "developer",
-        "nationality": "Untied States",
+        "nationality": "US",
         "postal_code": "12345"
     }
 }
@@ -476,6 +487,17 @@ This endpoint add a guest into this booking
 Parameter | Default | Description
 --------- | ------- | -----------
 booking_id | true | The Booking's ID
+settings[name] | false | Guest Name
+settings[photo] | false | Guest Passport Photos
+settings[dob] | false | Guest Date of Birth
+settings[nationality] | false | Guest Nationality (2 letters ISO3166)
+settings[postal_code] | false | Guest Postal Code
+settings[address] | false | Guest Address
+settings[occupation] | false | Guest Occupation
+settings[visa_no] | false | Guest Passport/Visa Number
+settings[phone] | false | Guest Phone number
+settings[last_port_embark] | false | Previous Country before arriving here
+settings[next_port_disembark] | false | Next Country will depart to
 
 
 ## Update a guest.

@@ -223,7 +223,9 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings"
         "name": "John Smith",
         "email": "john_smith@gmail.com",
         "phone": "123456789",
-        "language": "en"
+        "language": "en",
+        "country": "JP",
+        "address": "123 test street"
     }
 }
 ```
@@ -251,6 +253,8 @@ user[name] | true | guest name
 user[email] | true | guest email address
 user[phone] | true | guest phone number
 user[language] | true | guest preferred language, two letters format.
+user[country] | false | guest country code
+user[address] | false | guest address
 
 
 ## Update a Booking.
