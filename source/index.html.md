@@ -600,6 +600,7 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
   -H "APPID: APIKEY_FROM_AIRHOST"
   -data '{
         "item": "image/jpeg;base64,(base64 encoded data)"
+        "file_name": "passport_photo.jpg"
     }'
 ```
 
@@ -624,7 +625,7 @@ Parameter | Default| Description
 --------- | ------- | -----------
 booking_id | true |The ID of the booking
 guest_id | true |The ID of the guest
-
+file_name| false| the file name of the image.
 ## Update a attachment.
 
 ```shell
