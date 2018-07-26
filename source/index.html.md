@@ -377,6 +377,59 @@ booking_id | true | The Booking's ID
 name | true | The new recipient's name
 email | true | The new recipient's email
 
+## Complete a Booking's checkout.
+
+```shell
+curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out"
+  -H "Authorization: Basic Base64(username:password)"
+  -H "APPID: APIKEY_FROM_AIRHOST"
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "data": [
+    {
+        "id": 1358,
+        "uid": "HMMJTRSTTE",
+        "guestnum": 3,
+        "summary": "Nikolai Ramstetter (HMMJTRSTTE)",
+        "dtstart": "2018-04-07T16:00:00.000+09:00",
+        "dtend": "2018-04-11T11:00:00.000+09:00",
+        "status": "confirmed",
+        "checkin_type": null,
+        "checkin_status": "checked_out",
+        "source": "airbnb",
+        "user":
+        {
+            "name": "Nikolai Ramstetter",
+            "email": "nikolai-smxiddb2jijh8gjt@guest.airbnb.com"
+        }
+    }],
+    "meta":
+    {
+        "total_pages": 1,
+        "total_count": 1
+    }
+}
+```
+
+This endpoint mark the booking checkout is completed and receive the details booking information.
+
+
+### HTTP Request
+
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/checked_out`
+
+### URL Parameters
+
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | true | The Booking's ID
+
 # Guest
 
 ## Get All Guests
