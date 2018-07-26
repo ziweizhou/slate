@@ -248,6 +248,9 @@
                   <li>
                     <a href="#email-a-booking-39-s-checkin-information" class="toc-h2 toc-link" data-title="email-a-booking-s-checkin-information">Email a Booking's checkin information.</a>
                   </li>
+                  <li>
+                    <a href="#complete-a-booking-39-s-checkout" class="toc-h2 toc-link" data-title="complete-a-booking-s-checkout">Complete a Booking's checkout.</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -760,6 +763,57 @@ These settings can be set via Airhost PMS UI.
 <td>The new recipient&#39;s email</td>
 </tr>
 </tbody></table>
+<h2 id='complete-a-booking-39-s-checkout'>Complete a Booking&#39;s checkout.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out"</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1358</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HMMJTRSTTE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guestnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter (HMMJTRSTTE)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtstart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T16:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T11:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_out"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"total_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint mark the booking checkout is completed and receive the details booking information.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/checked_out</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>The Booking&#39;s ID</td>
+</tr>
+</tbody></table>
 <h1 id='guest'>Guest</h1><h2 id='get-all-guests'>Get All Guests</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span>
   -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
@@ -799,7 +853,7 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all guests associate with a booking match search query.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -850,9 +904,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -956,9 +1010,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -994,7 +1048,7 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all attachments associate with a booking match search query.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
@@ -1032,9 +1086,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a attachment into this booking</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1075,9 +1129,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a attachment into this booking</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
