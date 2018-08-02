@@ -520,7 +520,7 @@ These settings can be set via Airhost PMS UI.
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
   --date <span class="s1">'{
   "house_id": 1,
-  "updated_at": Time.zone.now.to_i
+  "updated_at": 1533217109
     }
 </span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
 </code></pre>
@@ -572,7 +572,7 @@ These settings can be set via Airhost PMS UI.
 <tr>
 <td>updated_at</td>
 <td>true</td>
-<td>bookings updated after this time</td>
+<td>bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp</td>
 </tr>
 </tbody></table>
 
