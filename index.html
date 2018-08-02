@@ -520,7 +520,7 @@ These settings can be set via Airhost PMS UI.
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
   --date <span class="s1">'{
   "house_id": 1,
-  "updated_at": 11111111
+  "updated_at": Time.zone.now.to_i
     }
 </span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
 </code></pre>
@@ -648,6 +648,11 @@ These settings can be set via Airhost PMS UI.
 <td>first_name</td>
 <td>false</td>
 <td>Search booking by guest first name</td>
+</tr>
+<tr>
+<td>room_number</td>
+<td>false</td>
+<td>Search booking by Room Number (used for checkout mostly)</td>
 </tr>
 </tbody></table>
 
