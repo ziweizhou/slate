@@ -174,7 +174,7 @@ curl "https://test.airhost.co/api/v1/bookings"
   -H "APPID: APIKEY_FROM_AIRHOST"
   --date '{
   "house_id": 1,
-  "updated_at": 11111111
+  "updated_at": Time.zone.now.to_i
     }
 ```
 ```ruby
@@ -287,6 +287,7 @@ house_id | true | Search booking by House ID
 uid | true | Search booking by its OTA confirmation ID
 last_name | false | Search booking by guest last name
 first_name | false | Search booking by guest first name
+room_number | false | Search booking by Room Number (used for checkout mostly)
 
 <aside class="info">
 1. with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled. <br />
