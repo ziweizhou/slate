@@ -174,7 +174,7 @@ curl "https://test.airhost.co/api/v1/bookings"
   -H "APPID: APIKEY_FROM_AIRHOST"
   --date '{
   "house_id": 1,
-  "updated_at": Time.zone.now.to_i
+  "updated_at": 1533217109
     }
 ```
 ```ruby
@@ -222,7 +222,7 @@ This endpoint retrieves all bookings from one house.
 Parameter | Default | Description
 --------- | ------- | -----------
 house_id | true | Search booking by House ID
-updated_at | true | bookings updated after this time
+updated_at | true | bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp
 
 <aside class="warning">
 1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
