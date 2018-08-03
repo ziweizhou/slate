@@ -325,8 +325,9 @@ You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
 Production API URL is cloud.airhost.co
 Test API URL is test.airhost.co
 </aside>
-<h1 id='checkin-setting'>Checkin Setting</h1><h2 id='checkin-setting-for-a-specific-property'>Checkin Setting for a specific property</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/houses/:id/settings"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
+<h1 id='checkin-setting'>Checkin Setting</h1><h2 id='checkin-setting-for-a-specific-property'>Checkin Setting for a specific property</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/houses/:id/settings"</span> <span class="se">\</span>
+  -X GET -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 </code></pre>
 <blockquote>
@@ -515,14 +516,15 @@ Test API URL is test.airhost.co
 <aside class="success">
 These settings can be set via Airhost PMS UI.
 </aside>
-<h1 id='booking'>Booking</h1><h2 id='retrieve-bookings'>Retrieve Bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/bookings"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  --date <span class="s1">'{
-  "house_id": 1,
-  "updated_at": 1533217109
-    }
-</span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
+<h1 id='booking'>Booking</h1><h2 id='retrieve-bookings'>Retrieve Bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/bookings"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  --data <span class="s1">'{ \
+    "house_id"=1, \
+    "updated_at"=1533217109 \
+    }'</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -580,13 +582,15 @@ These settings can be set via Airhost PMS UI.
 1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
 2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
 </aside>
-<h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  --date <span class="s1">'{"uid":123,
-  "last_name": "Smith",
-  "first_name": "John",
-  "house_id": 1
+<h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -X GET <span class="se">\</span>
+  --date <span class="s1">'{ \
+    "uid":123, \
+    "last_name": "Smith", \
+    "first_name": "John", \
+    "house_id": 1 \
     }'</span>
 </code></pre>
 <blockquote>
@@ -660,8 +664,8 @@ These settings can be set via Airhost PMS UI.
 1. with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled. <br />
 2. Please note the URL has <b>/checkin</b> in the front.
 </aside>
-<h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
+<h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 </code></pre>
 <blockquote>
@@ -722,11 +726,11 @@ These settings can be set via Airhost PMS UI.
 <td>Additional informations.</td>
 </tr>
 </tbody></table>
-<h2 id='email-a-booking-39-s-checkin-information'>Email a Booking&#39;s checkin information.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/email"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  --date <span class="s1">'{"name": "John Smith",
-  "email": "john@smith.com"
+<h2 id='email-a-booking-39-s-checkin-information'>Email a Booking&#39;s checkin information.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/email"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  --date <span class="s1">'{"name": "John Smith", \
+  "email": "john@smith.com" \
     }'</span>
 </code></pre>
 <blockquote>
@@ -768,8 +772,8 @@ These settings can be set via Airhost PMS UI.
 <td>The new recipient&#39;s email</td>
 </tr>
 </tbody></table>
-<h2 id='complete-a-booking-39-s-checkout'>Complete a Booking&#39;s checkout.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
+<h2 id='complete-a-booking-39-s-checkout'>Complete a Booking&#39;s checkout.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 
 </code></pre>
@@ -819,9 +823,10 @@ These settings can be set via Airhost PMS UI.
 <td>The Booking&#39;s ID</td>
 </tr>
 </tbody></table>
-<h1 id='guest'>Guest</h1><h2 id='get-all-guests'>Get All Guests</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+<h1 id='guest'>Guest</h1><h2 id='get-all-guests'>Get All Guests</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -874,19 +879,19 @@ These settings can be set via Airhost PMS UI.
 <td>The Booking&#39;s ID</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-guest'>Create a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  -data <span class="s1">'{
-        "name": "Samanta Phillips",
-        "notes": "test",
-        "dob": "2018-05-17",
-        "phone": "123",
-        "address": "123 USA",
-        "visa_no": "123456789",
-        "occupation": "developer",
-        "nationality": "US",
-        "postal_code": "12345"
+<h2 id='create-a-guest'>Create a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -data <span class="s1">'{ \
+        "name": "Samanta Phillips", \
+        "notes": "test", \
+        "dob": "2018-05-17", \
+        "phone": "123", \
+        "address": "123 USA", \
+        "visa_no": "123456789", \
+        "occupation": "developer", \
+        "nationality": "US", \
+        "postal_code": "12345" \
     }'</span>
 </code></pre>
 <blockquote>
@@ -980,19 +985,19 @@ These settings can be set via Airhost PMS UI.
 <td>Next Country will depart to</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-guest'>Update a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  -data <span class="s1">'{
-        "name": "Samanta Phillips",
-        "notes": "test",
-        "dob": "2018-05-17",
-        "phone": "123",
-        "address": "USA",
-        "visa_no": "123456789",
-        "occupation": "developer",
-        "nationality": "Untied States",
-        "postal_code": "12345"
+<h2 id='update-a-guest'>Update a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -data <span class="s1">'{ \
+        "name": "Samanta Phillips", \
+        "notes": "test", \
+        "dob": "2018-05-17", \
+        "phone": "123", \
+        "address": "USA", \
+        "visa_no": "123456789", \
+        "occupation": "developer", \
+        "nationality": "Untied States", \
+        "postal_code": "12345" \
     }'</span>
 </code></pre>
 <blockquote>
@@ -1036,9 +1041,10 @@ These settings can be set via Airhost PMS UI.
 <td>The ID of the guest</td>
 </tr>
 </tbody></table>
-<h1 id='attachment'>Attachment</h1><h2 id='get-all-attachments'>Get All Attachments</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+<h1 id='attachment'>Attachment</h1><h2 id='get-all-attachments'>Get All Attachments</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1074,12 +1080,12 @@ These settings can be set via Airhost PMS UI.
 <td>The ID of the guest</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-attachment'>Create a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  -data <span class="s1">'{
-        "item": "image/jpeg;base64,(base64 encoded data)"
-        "file_name": "passport_photo.jpg"
+<h2 id='create-a-attachment'>Create a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  --data <span class="s1">'{ \
+        "item": "image/jpeg;base64,(base64 encoded data)" \
+        "file_name": "passport_photo.jpg" \
     }'</span>
 </code></pre>
 <blockquote>
@@ -1117,12 +1123,12 @@ These settings can be set via Airhost PMS UI.
 <td>the file name of the image.</td>
 </tr>
 </tbody></table>
-<h2 id='update-a-attachment'>Update a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id"</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
-  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
-  -data <span class="s1">'{
-        "id": 3,
-        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww....."
+<h2 id='update-a-attachment'>Update a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -data <span class="s1">'{ \
+        "id": 3, \
+        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww....." \
     }'</span>
 </code></pre>
 <blockquote>
