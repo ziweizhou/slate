@@ -519,6 +519,7 @@ These settings can be set via Airhost PMS UI.
 <h1 id='booking'>Booking</h1><h2 id='retrieve-bookings'>Retrieve Bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/bookings"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   --data <span class="s1">'{ \
     "house_id"=1, \
@@ -585,6 +586,7 @@ These settings can be set via Airhost PMS UI.
 <h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
   --date <span class="s1">'{ \
     "uid":123, \
