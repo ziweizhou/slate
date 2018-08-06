@@ -173,6 +173,7 @@ These settings can be set via Airhost PMS UI.
 curl "https://test.airhost.co/api/v1/bookings" \
   -H "Authorization: Basic Base64(username:password)" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
+  -H "Content-Type: application/json" \
   -X GET \
   --data '{ \
     "house_id"=1, \
@@ -237,6 +238,7 @@ updated_at | true | bookings updated after this time, it is in timestamp format.
 curl "https://test.airhost.co/api/v1/checkin/bookings" \
   -H "Authorization: Basic Base64(username:password)" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
+  -H "Content-Type: application/json" \
   -X GET \
   --date '{ \
     "uid":123, \
