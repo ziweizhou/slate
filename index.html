@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;,&quot;python&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -213,6 +213,10 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -300,21 +304,21 @@
 <blockquote>
 <p>To generate proper authentication header, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'base64'</span>
-<span class="n">base64_encoded_string</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"username:password"</span><span class="p">)</span>
-
-<span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"demo:nikuniku"</span><span class="p">)</span>
-<span class="c1">#=&gt; "ZGVtbzpuaWt1bmlrdQ=="</span>
-</code></pre><pre class="highlight php tab-php"><code>base64_encode("demo:nikuniku")
-#=&gt; "ZGVtbzpuaWt1bmlrdQ=="
-</code></pre><pre class="highlight plaintext"><code>Buffer.from("demo:nikuniku").toString('base64')
-#=&gt; "ZGVtbzpuaWt1bmlrdQ=="
-</code></pre><pre class="highlight python tab-python"><code><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s">"demo:nikuniku"</span><span class="p">)</span>
-<span class="c">#=&gt; "ZGVtbzpuaWt1bmlrdQ=="</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"api_endpoint_here"</span>
   -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'base64'</span>
+<span class="n">base64_encoded_string</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"username:password"</span><span class="p">)</span>
+
+<span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="s2">"demo:nikuniku"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="s2">"ZGVtbzpuaWt1bmlrdQ=="</span>
+</code></pre><pre class="highlight php tab-php"><code>base64_encode("demo:nikuniku")
+=&gt; "ZGVtbzpuaWt1bmlrdQ=="
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="s2">"demo:nikuniku"</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="s1">'base64'</span><span class="p">)</span>
+<span class="err">#</span><span class="o">=&gt;</span> <span class="s2">"ZGVtbzpuaWt1bmlrdQ=="</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="s">"demo:nikuniku"</span><span class="p">)</span>
+<span class="c">#=&gt; "ZGVtbzpuaWt1bmlrdQ=="</span>
 </code></pre>
 <blockquote>
 <p>Make sure to replace <code>APIKEY_FROM_AIRHOST</code> with your API key.</p>
@@ -336,7 +340,7 @@ Test API URL is test.airhost.co
 </aside>
 <h1 id='checkin-setting'>Checkin Setting</h1><h2 id='checkin-setting-for-a-specific-property'>Checkin Setting for a specific property</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/houses/:id/settings"</span> <span class="se">\</span>
   -X GET -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 </code></pre>
 <blockquote>
@@ -526,7 +530,7 @@ Test API URL is test.airhost.co
 These settings can be set via Airhost PMS UI.
 </aside>
 <h1 id='booking'>Booking</h1><h2 id='retrieve-bookings'>Retrieve Bookings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/bookings"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
@@ -593,7 +597,7 @@ These settings can be set via Airhost PMS UI.
 2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
 </aside>
 <h2 id='search-a-booking'>Search a Booking</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -X GET <span class="se">\</span>
@@ -676,7 +680,7 @@ These settings can be set via Airhost PMS UI.
 2. Please note the URL has <b>/checkin</b> in the front.
 </aside>
 <h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 </code></pre>
 <blockquote>
@@ -738,7 +742,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='email-a-booking-39-s-checkin-information'>Email a Booking&#39;s checkin information.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/email"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   --date <span class="s1">'{"name": "John Smith", \
   "email": "john@smith.com" \
@@ -784,7 +788,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='complete-a-booking-39-s-checkout'>Complete a Booking&#39;s checkout.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 
 </code></pre>
@@ -835,7 +839,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h1 id='guest'>Guest</h1><h2 id='get-all-guests'>Get All Guests</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
@@ -891,7 +895,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='create-a-guest'>Create a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -data <span class="s1">'{ \
         "name": "Samanta Phillips", \
@@ -997,7 +1001,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='update-a-guest'>Update a guest.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -data <span class="s1">'{ \
         "name": "Samanta Phillips", \
@@ -1053,7 +1057,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h1 id='attachment'>Attachment</h1><h2 id='get-all-attachments'>Get All Attachments</h2><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
@@ -1092,7 +1096,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='create-a-attachment'>Create a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   --data <span class="s1">'{ \
         "item": "image/jpeg;base64,(base64 encoded data)" \
@@ -1135,7 +1139,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h2 id='update-a-attachment'>Update a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id"</span> <span class="se">\</span>
-  -H <span class="s2">"Authorization: Basic Base64(username:password)"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -data <span class="s1">'{ \
         "id": 3, \
@@ -1241,6 +1245,10 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="php">php</a>
+                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
