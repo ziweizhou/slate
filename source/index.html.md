@@ -4,6 +4,10 @@ title: Airhost Checkin API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
+  - php
+  - javascript
+  - python
+  - json
 
 toc_footers:
   - <a href='mailto:hello@airhost.co'>Email Us to obtain the API key</a>
@@ -25,19 +29,28 @@ We have language bindings in Ruby! You can view code examples in the dark area t
 
 > To generate proper authentication header, use this code:
 
+```shell
+# With shell, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="
+  -H "APPID: APIKEY_FROM_AIRHOST"
+```
+
+
 ```ruby
 require 'base64'
 base64_encoded_string = Base64.encode64("username:password")
 
 Base64.encode64("demo:nikuniku")
-#=> "ZGVtbzpuaWt1bmlrdQ=="
-```
-```php
-base64_encode("demo:nikuniku")
-#=> "ZGVtbzpuaWt1bmlrdQ=="
+=> "ZGVtbzpuaWt1bmlrdQ=="
 ```
 
-```nodejs
+```php
+base64_encode("demo:nikuniku")
+=> "ZGVtbzpuaWt1bmlrdQ=="
+```
+
+```javascript
 Buffer.from("demo:nikuniku").toString('base64')
 #=> "ZGVtbzpuaWt1bmlrdQ=="
 ```
@@ -47,12 +60,6 @@ base64.b64decode("demo:nikuniku")
 #=> "ZGVtbzpuaWt1bmlrdQ=="
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="
-  -H "APPID: APIKEY_FROM_AIRHOST"
-```
 
 > Make sure to replace `APIKEY_FROM_AIRHOST` with your API key.
 
@@ -79,7 +86,7 @@ Test API URL is test.airhost.co
 ```shell
 curl "https://test.airhost.co/api/v1/checkin/houses/:id/settings" \
   -X GET -H "Content-Type: application/json" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
@@ -188,7 +195,7 @@ These settings can be set via Airhost PMS UI.
 
 ```shell
 curl "https://test.airhost.co/api/v1/bookings" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -H "Content-Type: application/json" \
   -X GET \
@@ -253,7 +260,7 @@ updated_at | true | bookings updated after this time, it is in timestamp format.
 
 ```shell
 curl "https://test.airhost.co/api/v1/checkin/bookings" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -H "Content-Type: application/json" \
   -X GET \
@@ -321,7 +328,7 @@ room_number | false | Search booking by Room Number (used for checkout mostly)
 
 ```shell
 curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/completed" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
@@ -366,7 +373,7 @@ key_doc_url | false | Additional informations.
 
 ```shell
 curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/email" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   --date '{"name": "John Smith", \
   "email": "john@smith.com" \
@@ -405,7 +412,7 @@ email | true | The new recipient's email
 
 ```shell
 curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/checked_out" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST"
 
 ```
@@ -460,7 +467,7 @@ id | true | The Booking's ID
 
 ```shell
 curl -X GET "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -H "Content-Type: application/json"
 ```
@@ -519,7 +526,7 @@ booking_id | true | The Booking's ID
 
 ```shell
 curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
         "name": "Samanta Phillips", \
@@ -582,7 +589,7 @@ settings[next_port_disembark] | false | Next Country will depart to
 
 ```shell
 curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
         "name": "Samanta Phillips", \
@@ -638,7 +645,7 @@ id | true |The ID of the guest
 
 ```shell
 curl -X GET "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -H "Content-Type: application/json"
 ```
@@ -675,7 +682,7 @@ guest_id | true |The ID of the guest
 
 ```shell
 curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   --data '{ \
         "item": "image/jpeg;base64,(base64 encoded data)" \
@@ -709,7 +716,7 @@ file_name| false| the file name of the image.
 
 ```shell
 curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id" \
-  -H "Authorization: Basic Base64(username:password)" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
         "id": 3, \
