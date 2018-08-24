@@ -28,12 +28,29 @@ We have language bindings in Ruby! You can view code examples in the dark area t
 ```ruby
 require 'base64'
 base64_encoded_string = Base64.encode64("username:password")
+
+Base64.encode64("demo:nikuniku")
+#=> "ZGVtbzpuaWt1bmlrdQ=="
+```
+```php
+base64_encode("demo:nikuniku")
+#=> "ZGVtbzpuaWt1bmlrdQ=="
+```
+
+```nodejs
+Buffer.from("demo:nikuniku").toString('base64')
+#=> "ZGVtbzpuaWt1bmlrdQ=="
+```
+
+```python
+base64.b64decode("demo:nikuniku")
+#=> "ZGVtbzpuaWt1bmlrdQ=="
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: Basic Base64(username:password)"
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
