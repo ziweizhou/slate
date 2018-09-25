@@ -656,11 +656,7 @@ These settings can be set via Airhost PMS UI.
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<p>The Airhost API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -670,11 +666,11 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Bad Request -- Your request is invalid (missing_required_paramter)</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- Your API key is wrong (invalid_api_key) or \n  invalid_username_password: invalid username and password, please make sure they are base64 encoded.\n invalid_api_call: you are not authorized to use this API endpoint.</td>
 </tr>
 <tr>
 <td>403</td>
@@ -682,23 +678,27 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified record could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access a record with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
 <td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>441</td>
+<td>Not ready for checkin -- You cannot check in now, but need to wait till check-in time (not_ready_for_checkin)</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>442</td>
+<td>Already checked in -- This reservation has already checked in (reservation_already_checked_in)</td>
+</tr>
+<tr>
+<td>443</td>
+<td>Already checked out -- This reservation has already checked out (reservation_already_checked_out)</td>
 </tr>
 <tr>
 <td>429</td>
