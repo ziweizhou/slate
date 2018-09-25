@@ -286,6 +286,26 @@
               </ul>
           </li>
           <li>
+            <a href="#error-code" class="toc-h1 toc-link" data-title="error-code">Error Code</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#error-441" class="toc-h2 toc-link" data-title="error-441">Error 441</a>
+                  </li>
+                  <li>
+                    <a href="#error-442" class="toc-h2 toc-link" data-title="error-442">Error 442</a>
+                  </li>
+                  <li>
+                    <a href="#error-443" class="toc-h2 toc-link" data-title="error-443">Error 443</a>
+                  </li>
+                  <li>
+                    <a href="#error-400" class="toc-h2 toc-link" data-title="error-400">Error 400</a>
+                  </li>
+                  <li>
+                    <a href="#error-401" class="toc-h2 toc-link" data-title="error-401">Error 401,</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -1181,6 +1201,20 @@ These settings can be set via Airhost PMS UI.
 <td>The id of the attachment</td>
 </tr>
 </tbody></table>
+<h1 id='error-code'>Error Code</h1><h2 id='error-441'>Error 441</h2><h3 id='not_ready_for_checkin'>not_ready_for_checkin</h3>
+<p>You cannot check in now, but need to wait till check-in time</p>
+<h2 id='error-442'>Error 442</h2><h3 id='reservation_already_checked_in'>reservation_already_checked_in</h3>
+<p>This reservation has already checked in</p>
+<h2 id='error-443'>Error 443</h2><h3 id='reservation_already_checked_out'>reservation_already_checked_out</h3>
+<p>This reservation has already checked out</p>
+<h2 id='error-400'>Error 400</h2><h3 id='bad-request-or-missing_required_paramter'>bad request or missing_required_paramter,</h3>
+<p>Missing required parameter.</p>
+<h2 id='error-401'>Error 401,</h2><h3 id='unauthorized'>Unauthorized</h3>
+<ul>
+<li>invalid_api_key: Invalid APP ID</li>
+<li>invalid_username_password: invalid username and password, please make sure they are base64 encoded.</li>
+<li>invalid_api_call: you are not authorized to use this API endpoint.</li>
+</ul>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
