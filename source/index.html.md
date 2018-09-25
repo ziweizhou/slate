@@ -746,37 +746,3 @@ Parameter | Default| Description
 booking_id | true |The ID of the booking
 guest_id | true |The ID of the guest
 id | true | The id of the attachment
-
-# Error Code
-
-## Error 441
-
-###not_ready_for_checkin
-
-You cannot check in now, but need to wait till check-in time
-
-## Error 442
-
-###reservation_already_checked_in
-
-This reservation has already checked in
-
-## Error 443
-
-### reservation_already_checked_out
-
-This reservation has already checked out
-
-## Error 400
-
-###bad request or missing_required_paramter,
-
-Missing required parameter.
-
-## Error 401,
-
-###Unauthorized
-
-   * invalid_api_key: Invalid APP ID
-   * invalid_username_password: invalid username and password, please make sure they are base64 encoded.
-   * invalid_api_call: you are not authorized to use this API endpoint.
