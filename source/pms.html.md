@@ -146,7 +146,15 @@ curl "https://cloud.airhost.co/api/v1/bookings"
         "checkin_type": null,
         "checkin_status": "checked_in",
         "source": "airbnb",
-        "room_id": 123,
+        "room":
+        {
+            "id": 123,
+            "name": "One Bedroom"
+        },
+        "house":{
+            "id": 1,
+            "name": "Airhost Hotel"
+        },
         "user":
         {
             "name": "Nikolai Ramstetter",
@@ -215,8 +223,15 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings"
     "description": "Need no smoking room",
     "dtstart": "2018-04-07T16:00:00.000+09:00",
     "dtend": "2018-04-11T11:00:00.000+09:00",
-    "room_id": 123,
-    "house_id": 1,
+    "room":
+    {
+        "id": 123,
+        "name": "One Bedroom"
+    },
+    "house":{
+        "id": 1,
+        "name": "Airhost Hotel"
+    },
     "reservation_site": "your site name",
     "user":
     {
@@ -295,8 +310,15 @@ curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:id"
     "status": "confirmed",
     "checkin_status": "checked_in",
     "reservation_site": "airbnb",
-    "room_id": 123,
-    "house_id": 1,
+    "room":
+    {
+        "id": 123,
+        "name": "One Bedroom"
+    },
+    "house":{
+        "id": 1,
+        "name": "Airhost Hotel"
+    },
     "user":
     {
         "name": "John Smith",
