@@ -184,7 +184,7 @@ checkin_settings[visa_no] | false | Guest Passport/Visa Number
 checkin_settings[phone] | false | Guest Phone number
 checkin_settings[last_port_embark] | false | Previous Country before arriving here
 checkin_settings[next_port_disembark] | false | Next Country will depart to
-
+checkin_settings[signature] | false | Guest signature
 <aside class="success">
 These settings can be set via Airhost PMS UI.
 </aside>
@@ -746,3 +746,34 @@ Parameter | Default| Description
 booking_id | true |The ID of the booking
 guest_id | true |The ID of the guest
 id | true | The id of the attachment
+
+#Video Chat
+## Create a Video Chat request.
+
+```shell
+curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/video_chats" \
+  -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
+  -H "APPID: APIKEY_FROM_AIRHOST" \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "token": "xxxxxx",
+    "chat_room": "xxxx-xxx-xxx-xxx"
+}
+```
+
+This endpoint create a video chat
+
+### HTTP Request
+
+`POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/video_chats`
+
+### URL Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+token | true | The Auth token to connect to the video chat service
+chat_room| true| the chat room that is created
