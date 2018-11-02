@@ -286,6 +286,14 @@
               </ul>
           </li>
           <li>
+            <a href="#video-chat" class="toc-h1 toc-link" data-title="video-chat">Video Chat</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-video-chat-request" class="toc-h2 toc-link" data-title="create-a-video-chat-request">Create a Video Chat request.</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
@@ -523,6 +531,11 @@ Test API URL is test.airhost.co
 <td>checkin_settings[next_port_disembark]</td>
 <td>false</td>
 <td>Next Country will depart to</td>
+</tr>
+<tr>
+<td>checkin_settings[signature]</td>
+<td>false</td>
+<td>Guest signature</td>
 </tr>
 </tbody></table>
 
@@ -1179,6 +1192,40 @@ These settings can be set via Airhost PMS UI.
 <td>id</td>
 <td>true</td>
 <td>The id of the attachment</td>
+</tr>
+</tbody></table>
+<h1 id='video-chat'>Video Chat</h1><h2 id='create-a-video-chat-request'>Create a Video Chat request.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/video_chats"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"chat_room"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxxx-xxx-xxx-xxx"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint create a video chat</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/video_chats</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>true</td>
+<td>The Auth token to connect to the video chat service</td>
+</tr>
+<tr>
+<td>chat_room</td>
+<td>true</td>
+<td>the chat room that is created</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
