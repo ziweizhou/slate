@@ -146,6 +146,8 @@ curl "https://cloud.airhost.co/api/v1/bookings"
         "checkin_type": null,
         "checkin_status": "checked_in",
         "source": "airbnb",
+        "created_at": "2018-01-07T16:00:00.000+09:00",
+        "updated_at": "2018-01-11T11:00:00.000+09:00",
         "room":
         {
             "id": 123,
