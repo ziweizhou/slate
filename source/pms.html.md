@@ -4,6 +4,10 @@ title: Airhost Checkin API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - ruby
+  - php
+  - javascript
+  - python
+  - json
 
 toc_footers:
   - <a href='mailto:hello@airhost.co'>Email Us to obtain the API key</a>
