@@ -619,17 +619,20 @@ This endpoint add a guest into this booking
 Parameter | Default | Description
 --------- | ------- | -----------
 booking_id | true | The Booking's ID
-settings[name] | false | Guest Name
-settings[photo] | false | Guest Passport Photos
-settings[dob] | false | Guest Date of Birth
-settings[nationality] | false | Guest Nationality (2 letters ISO3166)
-settings[postal_code] | false | Guest Postal Code
-settings[address] | false | Guest Address
-settings[occupation] | false | Guest Occupation
-settings[visa_no] | false | Guest Passport/Visa Number
-settings[phone] | false | Guest Phone number
-settings[last_port_embark] | false | Previous Country before arriving here
-settings[next_port_disembark] | false | Next Country will depart to
+first_name | false | Guest First Name
+last_name | false | Guest Last Name
+dob | false | Guest Date of Birth
+gender | false | Guest Gender (male or female)
+email | false | Guest Email Address
+nationality | false | Guest Nationality (2 letters ISO3166)
+postal_code | false | Guest Postal Code
+address | false | Guest Address
+occupation | false | Guest Occupation
+visa_no | false | Guest Passport/Visa Number
+phone | false | Guest Phone number
+last_port_embark | false | Previous Country before arriving here
+next_port_disembark | false | Next Country will depart to
+
 
 
 ## Update a guest.
