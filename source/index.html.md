@@ -489,7 +489,54 @@ curl -X GET "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests"
         "occupation": "CEO",
         "nationality": "US",
         "postal_code": "123"
-    }
+    },
+    "last_name": "Phillips",
+    "first_name": "Tom",
+    "gender": "male",
+    "dob": "2018-05-01",
+    "visa_no": "123456789",
+    "occupation": "CEO",
+    "nationality": "US",
+    "postal_code": "123",
+    "address": "USA",
+    "phone": "1234456",
+    "photo": {
+      "id": 36,
+      "checkin_guest_id": 13,
+      "booking_id": 530592,
+      "item": {
+        "url": "/uploads/development/checkin_attachment/36/item/id_photo.jpg",
+        "thumb": {
+          "url": "/uploads/development/checkin_attachment/36/item/thumb_id_photo.jpg"
+        }
+      },
+      "data": {},
+      "attachment_type": "photo",
+      "created_at": "2018-12-10T14:25:34.617+09:00",
+      "updated_at": "2018-12-10T14:25:34.617+09:00",
+      "name": "photo"
+    },
+    "ident_photo": null,
+    "last_port_embark": null,
+    "next_port_disembark": null,
+    "signature": {
+      "id": 37,
+      "checkin_guest_id": 13,
+      "booking_id": 530592,
+      "item": {
+        "url": "/uploads/development/checkin_attachment/37/item/signature.png",
+        "thumb": {
+          "url": "/uploads/development/checkin_attachment/37/item/thumb_signature.png"
+        }
+      },
+      "data": {},
+      "attachment_type": "photo",
+      "created_at": "2018-12-10T14:25:34.666+09:00",
+      "updated_at": "2018-12-10T14:25:34.666+09:00",
+      "name": "signature"
+    },
+    "email": "tom@airhost.co"
+
 },
 {
     "id": 3,
@@ -685,7 +732,8 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
   -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   --data '{ \
-        "item": "image/jpeg;base64,(base64 encoded data)" \
+        "item": "image/jpeg;base64,(base64 encoded data)", \
+        "name": "photo_ident",
         "file_name": "passport_photo.jpg" \
     }'
 ```
