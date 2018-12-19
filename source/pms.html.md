@@ -121,6 +121,7 @@ This endpoint retrieves all the PMS connected houses with room information.
 Parameter | Default | Description
 --------- | ------- | -----------
 id | true | The house's ID
+page| false | to retrieve houses from paginated result. (if meta.total_pages > 1)
 
 ### Return Data Parameters
 
