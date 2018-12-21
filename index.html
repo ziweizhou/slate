@@ -1204,6 +1204,11 @@ These settings can be set via Airhost PMS UI.
 <td>The ID of the guest</td>
 </tr>
 <tr>
+<td>name</td>
+<td>true</td>
+<td>the name of this attachment. Use to distinguish if it is a passport or other type of attachment.</td>
+</tr>
+<tr>
 <td>file_name</td>
 <td>false</td>
 <td>the file name of the image.</td>
@@ -1214,7 +1219,9 @@ These settings can be set via Airhost PMS UI.
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span> <span class="se">\</span>
   -data <span class="s1">'{ \
         "id": 3, \
-        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww....." \
+        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww.....", \
+        "file_name": "passport_photo.jpg", \
+        "name": "photo" \
     }'</span>
 </code></pre>
 <blockquote>
