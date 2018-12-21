@@ -762,6 +762,7 @@ Parameter | Default| Description
 --------- | ------- | -----------
 booking_id | true |The ID of the booking
 guest_id | true |The ID of the guest
+name| true |the name of this attachment. Use to distinguish if it is a passport or other type of attachment.
 file_name| false| the file name of the image.
 ## Update a attachment.
 
@@ -771,7 +772,9 @@ curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
         "id": 3, \
-        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww....." \
+        "item": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMkAAADJCAYAAACJxhYFAAAAAXNSR0IArs4c6QAAQABJREFUeAHtvQeYZNd153equ0Ln3NOT8ww.....", \
+        "file_name": "passport_photo.jpg", \
+        "name": "photo" \
     }'
 ```
 
