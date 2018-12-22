@@ -762,7 +762,11 @@ Parameter | Default| Description
 --------- | ------- | -----------
 booking_id | true |The ID of the booking
 guest_id | true |The ID of the guest
-name| true |the name of this attachment. Use to distinguish if it is a passport or other type of attachment.
+name| true |the name of this attachment.
+    |      | Use to distinguish if it is a passport or other type of attachment.
+    |      | Please use name="photo_ident" for holding passport photo
+    |      | please use name="photo" for passport photo
+    |      | please use name="signature" for signature photo
 file_name| false| the file name of the image.
 ## Update a attachment.
 
