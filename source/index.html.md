@@ -736,7 +736,7 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
   -H "APPID: APIKEY_FROM_AIRHOST" \
   --data '{ \
         "item": "image/jpeg;base64,(base64 encoded data)", \
-        "name": "photo_ident",
+        "name": "ident_photo",
         "file_name": "passport_photo.jpg" \
     }'
 ```
@@ -765,7 +765,7 @@ guest_id | true |The ID of the guest
 name| true |the name of this attachment.
     |      | Use to distinguish if it is a passport or other type of attachment.
     |      | please use name="photo" for passport photo
-    |      | Please use name="photo_ident" for holding passport photo
+    |      | Please use name="ident_photo" for holding passport photo
     |      | please use name="signature" for signature photo
 file_name| false| the file name of the image.
 ## Update a attachment.
