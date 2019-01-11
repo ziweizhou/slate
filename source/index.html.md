@@ -576,7 +576,8 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
   -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
-        "name": "Samanta Phillips", \
+        "first_name": "Samanta", \
+        "last_name": "Phillips", \
         "notes": "test", \
         "dob": "2018-05-17", \
         "phone": "123", \
@@ -593,7 +594,8 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
 ```json
 {
     "id": 3,
-    "name": "Samanta Phillips",
+    "first_name": "Samanta",
+    "last_name": "Phillips",
     "notes": "sad",
     "settings":
     {
@@ -642,7 +644,8 @@ curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/
   -H "Authorization: Basic ZGVtbzpuaWt1bmlrdQ==" \
   -H "APPID: APIKEY_FROM_AIRHOST" \
   -data '{ \
-        "name": "Samanta Phillips", \
+        "first_name": "Samanta", \
+        "last_name": "Phillips", \
         "notes": "test", \
         "dob": "2018-05-17", \
         "phone": "123", \
@@ -659,7 +662,8 @@ curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/
 ```json
 {
     "id": 3,
-    "name": "Samanta Phillips",
+    "first_name": "Samanta",
+    "last_name": "Phillips",
     "notes": "sad",
     "settings":
     {
