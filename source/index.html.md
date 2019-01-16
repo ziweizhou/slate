@@ -710,11 +710,13 @@ curl -X GET "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/
 ```json
 [{
     "id": 2,
-    "remote_item_url": "http://xxxxxx.jpg"
+    "remote_item_url": "http://xxxxxx.jpg",
+    "name": "photo"
 },
 {
     "id": 3,
-    "remote_item_url": "http://xxxxxx.jpg"
+    "remote_item_url": "http://xxxxxx.jpg",
+    "name": "signature"
 }]
 ```
 
@@ -730,6 +732,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 booking_id | true | The Booking's ID
 guest_id | true |The ID of the guest
+name| true| the name of the attachment.
 
 
 ## Create a attachment.
@@ -750,6 +753,7 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests
 ```json
 {
     "id": 3,
+    "name": "ident_photo",
     "remote_item_url": "http://xxxxxx.jpg"
 }
 ```
@@ -791,6 +795,7 @@ curl -X PUT "https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/
 ```json
 {
     "id": 3,
+    "name": "photo",
     "remote_item_url": "http://xxxxxx.jpg"
 }
 ```
