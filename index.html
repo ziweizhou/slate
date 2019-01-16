@@ -1140,11 +1140,13 @@ These settings can be set via Airhost PMS UI.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="w">
+    </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="w">
 </span><span class="p">},</span><span class="w">
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="w">
+    </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"signature"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all attachments associate with a booking match search query.</p>
@@ -1168,6 +1170,11 @@ These settings can be set via Airhost PMS UI.
 <td>true</td>
 <td>The ID of the guest</td>
 </tr>
+<tr>
+<td>name</td>
+<td>true</td>
+<td>the name of the attachment.</td>
+</tr>
 </tbody></table>
 <h2 id='create-a-attachment'>Create a attachment.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
@@ -1183,6 +1190,7 @@ These settings can be set via Airhost PMS UI.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ident_photo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1253,6 +1261,7 @@ These settings can be set via Airhost PMS UI.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"remote_item_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xxxxxx.jpg"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
