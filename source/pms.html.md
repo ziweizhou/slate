@@ -167,7 +167,7 @@ curl "https://cloud.airhost.co/api/v1/bookings"
         "dtstart": "2018-04-07T16:00:00.000+09:00",
         "dtend": "2018-04-11T11:00:00.000+09:00",
         "status": "confirmed",
-        "checkin_type": null,
+        "checkin_type": "self_checkin",
         "checkin_status": "checked_in",
         "source": "airbnb",
         "created_at": "2018-01-07T16:00:00.000+09:00",
@@ -185,7 +185,32 @@ curl "https://cloud.airhost.co/api/v1/bookings"
         {
             "name": "Nikolai Ramstetter",
             "email": "nikolai-smxiddb2jijh8gjt@guest.airbnb.com"
-        }
+        },
+        "booking_fees": [{
+            "id":3,
+            "fee_type":"transaction_fee",
+            "description":"Stripe service fee",
+            "dtdate":null,"amount":1008.0,
+            "included":true,"currency":null,
+            "paid":true,"per_night":false,
+            "per_person":false,
+            "percentage":0,
+            "created_at":"2018-12-11T12:17:43.378+09:00",
+            "updated_at":"2018-12-15T01:02:18.800+09:00"
+        }],
+        "fees":[
+            {"paid":false,
+            "fee_type":"per_day",
+            "amount":7700.0,
+            "date":"2020-04-08",
+            "description":"Standard Rate",
+            "ota_collect":false,
+            "included":false
+            }
+        ],
+        "payment_status": "paid", 
+        "currency": "JPY", 
+        "reservation_site" : "Booking.COM"
     }],
     "meta":
     {
@@ -207,6 +232,30 @@ Parameter | Default | Description
 --------- | ------- | -----------
 house_id | true | Search booking by House ID
 updated_at | true | bookings updated after this time (epoch time in seconds)
+
+### Return Data Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | true | Booking ID in Airhost
+uid | true | Booking ID from OTA
+guestnum | true | number of guests
+summary | true | Booking's description
+dtstart | true | checkin date
+dtend | true | checkout date
+checkin_type | false | self_checkin or operator_checkin
+checkin_status | false | :before_checkin, :checked_in, :checked_out
+source | true | OTA name
+room | true | room information
+house | true | property information
+user | true | guest information
+booking_fees | false | document any additional charges
+fees | false | charges from OTA
+payment_status | false | :not_paid, :paid, :partial_paid, :over_paid
+payment_method | false | :ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash
+currency | true | currency for this booking
+reservation_site | false | reservation is made from. 
+
 
 <aside class="warning">
 1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
