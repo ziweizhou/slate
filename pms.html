@@ -410,7 +410,7 @@ These settings can be set via Airhost PMS UI.
         </span><span class="s2">"dtstart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T16:00:00.000+09:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"dtend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T11:00:00.000+09:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"checkin_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self_checkin"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"checkin_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-07T16:00:00.000+09:00"</span><span class="p">,</span><span class="w">
@@ -428,7 +428,32 @@ These settings can be set via Airhost PMS UI.
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fees"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"per_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">7700.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2020-04-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Standard Rate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ota_collect"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reservation_site"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking.COM"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -457,6 +482,105 @@ These settings can be set via Airhost PMS UI.
 <td>updated_at</td>
 <td>true</td>
 <td>bookings updated after this time (epoch time in seconds)</td>
+</tr>
+</tbody></table>
+<h3 id='return-data-parameters-2'>Return Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>Booking ID in Airhost</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>Booking ID from OTA</td>
+</tr>
+<tr>
+<td>guestnum</td>
+<td>true</td>
+<td>number of guests</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>true</td>
+<td>Booking&#39;s description</td>
+</tr>
+<tr>
+<td>dtstart</td>
+<td>true</td>
+<td>checkin date</td>
+</tr>
+<tr>
+<td>dtend</td>
+<td>true</td>
+<td>checkout date</td>
+</tr>
+<tr>
+<td>checkin_type</td>
+<td>false</td>
+<td>self_checkin or operator_checkin</td>
+</tr>
+<tr>
+<td>checkin_status</td>
+<td>false</td>
+<td>:before_checkin, :checked_in, :checked_out</td>
+</tr>
+<tr>
+<td>source</td>
+<td>true</td>
+<td>OTA name</td>
+</tr>
+<tr>
+<td>room</td>
+<td>true</td>
+<td>room information</td>
+</tr>
+<tr>
+<td>house</td>
+<td>true</td>
+<td>property information</td>
+</tr>
+<tr>
+<td>user</td>
+<td>true</td>
+<td>guest information</td>
+</tr>
+<tr>
+<td>booking_fees</td>
+<td>false</td>
+<td>document any additional charges</td>
+</tr>
+<tr>
+<td>fees</td>
+<td>false</td>
+<td>charges from OTA</td>
+</tr>
+<tr>
+<td>payment_status</td>
+<td>false</td>
+<td>:not_paid, :paid, :partial_paid, :over_paid</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>false</td>
+<td>:ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>currency for this booking</td>
+</tr>
+<tr>
+<td>reservation_site</td>
+<td>false</td>
+<td>reservation is made from.</td>
 </tr>
 </tbody></table>
 
