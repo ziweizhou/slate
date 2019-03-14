@@ -7,7 +7,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - php
   - javascript
   - python
-  - json
 
 toc_footers:
   - <a href='mailto:hello@airhost.co'>Email Us to obtain the API key</a>
