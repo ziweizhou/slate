@@ -246,6 +246,9 @@
                     <a href="#search-a-booking" class="toc-h2 toc-link" data-title="Search a Booking">Search a Booking</a>
                   </li>
                   <li>
+                    <a href="#mark-a-booking-as-paid" class="toc-h2 toc-link" data-title="Mark a Booking as Paid">Mark a Booking as Paid</a>
+                  </li>
+                  <li>
                     <a href="#complete-a-booking-39-s-checkin" class="toc-h2 toc-link" data-title="Complete a Booking's checkin.">Complete a Booking's checkin.</a>
                   </li>
                   <li>
@@ -572,7 +575,38 @@ These settings can be set via Airhost PMS UI.
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"room"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"One Bedroom"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fees"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"per_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">7700.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2020-04-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Standard Rate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ota_collect"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotel_collect"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reservation_site"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking.COM"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -601,6 +635,105 @@ These settings can be set via Airhost PMS UI.
 <td>updated_at</td>
 <td>true</td>
 <td>bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp</td>
+</tr>
+</tbody></table>
+<h3 id='return-data-parameters-2'>Return Data Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>Booking ID in Airhost</td>
+</tr>
+<tr>
+<td>uid</td>
+<td>true</td>
+<td>Booking ID from OTA</td>
+</tr>
+<tr>
+<td>guestnum</td>
+<td>true</td>
+<td>number of guests</td>
+</tr>
+<tr>
+<td>summary</td>
+<td>true</td>
+<td>Booking&#39;s description</td>
+</tr>
+<tr>
+<td>dtstart</td>
+<td>true</td>
+<td>checkin date</td>
+</tr>
+<tr>
+<td>dtend</td>
+<td>true</td>
+<td>checkout date</td>
+</tr>
+<tr>
+<td>checkin_type</td>
+<td>false</td>
+<td>self_checkin or operator_checkin</td>
+</tr>
+<tr>
+<td>checkin_status</td>
+<td>false</td>
+<td>:before_checkin, :checked_in, :checked_out</td>
+</tr>
+<tr>
+<td>source</td>
+<td>true</td>
+<td>OTA name</td>
+</tr>
+<tr>
+<td>room</td>
+<td>true</td>
+<td>room information</td>
+</tr>
+<tr>
+<td>house</td>
+<td>true</td>
+<td>property information</td>
+</tr>
+<tr>
+<td>user</td>
+<td>true</td>
+<td>guest information</td>
+</tr>
+<tr>
+<td>booking_fees</td>
+<td>false</td>
+<td>document any additional charges</td>
+</tr>
+<tr>
+<td>fees</td>
+<td>false</td>
+<td>charges from OTA</td>
+</tr>
+<tr>
+<td>payment_status</td>
+<td>false</td>
+<td>:not_paid, :paid, :partial_paid, :over_paid</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>false</td>
+<td>:ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>true</td>
+<td>currency for this booking</td>
+</tr>
+<tr>
+<td>reservation_site</td>
+<td>false</td>
+<td>reservation is made from.</td>
 </tr>
 </tbody></table>
 
@@ -640,7 +773,38 @@ These settings can be set via Airhost PMS UI.
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"room"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"One Bedroom"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fees"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"per_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">7700.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2020-04-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Standard Rate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ota_collect"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotel_collect"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reservation_site"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking.COM"</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="s2">"meta"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -691,6 +855,87 @@ These settings can be set via Airhost PMS UI.
 1. with Airhost PMS A unique uid is sent to the guest if the auto message feature is enabled. <br />
 2. Please note the URL has <b>/checkin</b> in the front.
 </aside>
+<h2 id='mark-a-booking-as-paid'>Mark a Booking as Paid</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
+  -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
+  --date <span class="s1">'{ \
+    "payload": "some details about this transaction" \
+    }'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1358</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HMMJTRSTTE"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guestnum"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter (HMMJTRSTTE)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtstart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-07T16:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dtend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T11:00:00.000+09:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirmed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"checkin_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checked_in"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"airbnb"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"room"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"One Bedroom"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"fees"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"per_day"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">7700.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="s2">"2020-04-08"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Standard Rate"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ota_collect"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paid"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotel_collect"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JPY"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"reservation_site"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Booking.COM"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint marks the booking&#39;s payment status to paid</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/paid</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>true</td>
+<td>The Booking&#39;s ID</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>false</td>
+<td>transaction data to save to the server. Such as transactionID or Paid Amount</td>
+</tr>
+</tbody></table>
 <h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Basic ZGVtbzpuaWt1bmlrdQ=="</span> <span class="se">\</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
@@ -708,9 +953,9 @@ These settings can be set via Airhost PMS UI.
 <p>This endpoint mark the booking checkin is completed and receive the details room information.</p>
 
 <aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instruction</aside>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/completed</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -724,7 +969,7 @@ These settings can be set via Airhost PMS UI.
 <td>The Booking&#39;s ID</td>
 </tr>
 </tbody></table>
-<h3 id='return-data-parameters-2'>Return Data Parameters</h3>
+<h3 id='return-data-parameters-3'>Return Data Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -773,9 +1018,9 @@ These settings can be set via Airhost PMS UI.
 <p>This endpoint mark the booking checkin is completed and receive the details room information.</p>
 
 <aside class="warning">Please note, if this endpoint is not called, guest has no way to receive their checkin instruction</aside>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/completed</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -834,9 +1079,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint mark the booking checkout is completed and receive the details booking information.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:id/checked_out</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -937,7 +1182,7 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all guests associate with a booking match search query.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
@@ -990,9 +1235,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1108,9 +1353,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:id</code></p>
-<h3 id='url-parameters-5'>URL Parameters</h3>
+<h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1149,7 +1394,7 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all attachments associate with a booking match search query.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET https://test.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
@@ -1194,9 +1439,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a attachment into this booking</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments</code></p>
-<h3 id='url-parameters-6'>URL Parameters</h3>
+<h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1265,9 +1510,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a attachment into this booking</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/guests/:guest_id/attachments/:id</code></p>
-<h3 id='url-parameters-7'>URL Parameters</h3>
+<h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1304,9 +1549,9 @@ These settings can be set via Airhost PMS UI.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint create a video chat</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/checkin/bookings/:booking_id/video_chats</code></p>
-<h3 id='url-parameters-8'>URL Parameters</h3>
+<h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
