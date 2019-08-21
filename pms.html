@@ -392,7 +392,8 @@ These settings can be set via Airhost PMS UI.
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
   --date <span class="s1">'{
   "house_id": 1,
-  "updated_at": 11111111
+  "updated_at": 11111111,
+  "page": 2
     }
 </span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
 </code></pre>
@@ -481,6 +482,11 @@ These settings can be set via Airhost PMS UI.
 <td>updated_at</td>
 <td>true</td>
 <td>bookings updated after this time (epoch time in seconds)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>false</td>
+<td>to retrieve bookings from paginated result. (if meta.total_pages &gt; 1)</td>
 </tr>
 </tbody></table>
 <h3 id='return-data-parameters-2'>Return Data Parameters</h3>
