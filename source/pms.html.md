@@ -146,7 +146,8 @@ curl "https://cloud.airhost.co/api/v1/bookings"
   -H "APPID: APIKEY_FROM_AIRHOST"
   --date '{
   "house_id": 1,
-  "updated_at": 11111111
+  "updated_at": 11111111,
+  "page": 2
     }
 ```
 ```ruby
