@@ -231,6 +231,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 house_id | true | Search booking by House ID
 updated_at | true | bookings updated after this time (epoch time in seconds)
+page| false | to retrieve bookings from paginated result. (if meta.total_pages > 1)
 
 ### Return Data Parameters
 
