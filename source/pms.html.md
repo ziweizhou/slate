@@ -110,6 +110,7 @@ curl "https://cloud.airhost.co/api/v1/houses"
 ```
 
 This endpoint retrieves all the PMS connected houses with room information.
+Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
 
 ### HTTP Request
 
@@ -172,10 +173,24 @@ curl "https://cloud.airhost.co/api/v1/bookings"
         "source": "airbnb",
         "created_at": "2018-01-07T16:00:00.000+09:00",
         "updated_at": "2018-01-11T11:00:00.000+09:00",
+        "payment_status": "paid",
+        "currency": "JPY",
+        "reservation_site": "Booking.COM",
+        "payment_method": "hotel_collect",
+        "user": {
+            "name": "Nikolai Ramstetter",
+            "email": "nikolai@gmail.com",
+            "language": "en",
+            "phone": "1234567",
+            "address": null,
+            "country": "Spain",
+            "postal_code": null
+        },
         "room":
         {
             "id": 123,
-            "name": "One Bedroom"
+            "name": "One Bedroom",
+            "room_unit": "201"
         },
         "house":{
             "id": 1,
@@ -198,19 +213,27 @@ curl "https://cloud.airhost.co/api/v1/bookings"
             "created_at":"2018-12-11T12:17:43.378+09:00",
             "updated_at":"2018-12-15T01:02:18.800+09:00"
         }],
-        "fees":[
-            {"paid":false,
+        "fees":[{
+            "paid":false,
             "fee_type":"per_day",
             "amount":7700.0,
             "date":"2020-04-08",
             "description":"Standard Rate",
             "ota_collect":false,
             "included":false
-            }
-        ],
-        "payment_status": "paid", 
-        "currency": "JPY", 
-        "reservation_site" : "Booking.COM"
+            },
+            {"included": false,
+            "paid": true,
+            "fee_type": "cleaning_fee",
+            "amount": "123.0"
+        }],
+        "booking_fees": [],
+        "checkin_code": 9760,
+        "pre_checkin_url": "http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e",
+        "checkin_information": null,
+        "room_code": null,
+        "key_doc_url": null,
+        "checkin_completion_percentage": 80
     }],
     "meta":
     {
@@ -221,6 +244,7 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 ```
 
 This endpoint retrieves all bookings from one house.
+Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
 
 ### HTTP Request
 
