@@ -497,123 +497,123 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Mandatory</th>
 <th>Description</th>
+<th>Mandatory</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>house_id</td>
-<td>true</td>
 <td>Search booking by House ID</td>
+<td>true</td>
 </tr>
 <tr>
 <td>updated_at</td>
+<td>Bookings updated after this time (Epoch time in seconds)</td>
 <td>true</td>
-<td>bookings updated after this time (epoch time in seconds)</td>
 </tr>
 <tr>
 <td>page</td>
+<td>Page number</td>
 <td>false</td>
-<td>to retrieve bookings from paginated result. (if meta.total_pages &gt; 1)</td>
 </tr>
 </tbody></table>
 <h3 id='response-properties-2'>Response Properties</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Mandatory</th>
 <th>Description</th>
+<th>Mandatory</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>true</td>
 <td>Booking ID in Airhost</td>
+<td>true</td>
 </tr>
 <tr>
 <td>uid</td>
-<td>true</td>
 <td>Booking ID from OTA</td>
+<td>true</td>
 </tr>
 <tr>
 <td>guestnum</td>
-<td>true</td>
 <td>number of guests</td>
+<td>true</td>
 </tr>
 <tr>
 <td>summary</td>
-<td>true</td>
 <td>Booking&#39;s description</td>
+<td>true</td>
 </tr>
 <tr>
 <td>dtstart</td>
-<td>true</td>
 <td>checkin date</td>
+<td>true</td>
 </tr>
 <tr>
 <td>dtend</td>
-<td>true</td>
 <td>checkout date</td>
+<td>true</td>
 </tr>
 <tr>
 <td>checkin_type</td>
-<td>false</td>
 <td>self_checkin or operator_checkin</td>
+<td>false</td>
 </tr>
 <tr>
 <td>checkin_status</td>
-<td>false</td>
 <td>:before_checkin, :checked_in, :checked_out</td>
+<td>false</td>
 </tr>
 <tr>
 <td>source</td>
-<td>true</td>
 <td>OTA name</td>
+<td>true</td>
 </tr>
 <tr>
 <td>room</td>
-<td>true</td>
 <td>room information</td>
+<td>true</td>
 </tr>
 <tr>
 <td>house</td>
-<td>true</td>
 <td>property information</td>
+<td>true</td>
 </tr>
 <tr>
 <td>user</td>
-<td>true</td>
 <td>guest information</td>
+<td>true</td>
 </tr>
 <tr>
 <td>booking_fees</td>
-<td>false</td>
 <td>document any additional charges</td>
+<td>false</td>
 </tr>
 <tr>
 <td>fees</td>
-<td>false</td>
 <td>charges from OTA</td>
+<td>false</td>
 </tr>
 <tr>
 <td>payment_status</td>
-<td>false</td>
 <td>:not_paid, :paid, :partial_paid, :over_paid</td>
+<td>false</td>
 </tr>
 <tr>
 <td>payment_method</td>
-<td>false</td>
 <td>:ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash</td>
+<td>false</td>
 </tr>
 <tr>
 <td>currency</td>
-<td>true</td>
 <td>currency for this booking</td>
+<td>true</td>
 </tr>
 <tr>
 <td>reservation_site</td>
-<td>false</td>
 <td>reservation is made from.</td>
+<td>false</td>
 </tr>
 </tbody></table>
 
