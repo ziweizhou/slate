@@ -386,13 +386,13 @@ Refer to meta.total_count and meta.total_pages and for total result count and to
 </tr>
 </thead><tbody>
 <tr>
-<td>name</td>
-<td>Property Name</td>
+<td>id</td>
+<td>Property ID</td>
 <td>true</td>
 </tr>
 <tr>
-<td>id</td>
-<td>Property ID</td>
+<td>name</td>
+<td>Property Name</td>
 <td>true</td>
 </tr>
 <tr>
@@ -476,18 +476,6 @@ These settings can be set via Airhost PMS UI.
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Airhost Hotel"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
-        </span><span class="p">}],</span><span class="w">
         </span><span class="s2">"fees"</span><span class="p">:[{</span><span class="w">
             </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"per_day"</span><span class="p">,</span><span class="w">
@@ -502,7 +490,18 @@ These settings can be set via Airhost PMS UI.
             </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleaning_fee"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123.0"</span><span class="w">
         </span><span class="p">}],</span><span class="w">
-        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Stripe service fee"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"dtdate"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"amount"</span><span class="p">:</span><span class="mf">1008.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"included"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"currency"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"paid"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="s2">"per_night"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"per_person"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"percentage"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
+        </span><span class="p">}],</span><span class="w">
         </span><span class="s2">"checkin_code"</span><span class="p">:</span><span class="w"> </span><span class="mi">9760</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pre_checkin_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"checkin_information"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
