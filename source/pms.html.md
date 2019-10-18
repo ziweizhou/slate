@@ -76,7 +76,6 @@ Production API URL is cloud.airhost.co<br/>
 Test API URL is test.airhost.co
 </aside>
 
-
 # House
 
 ## Retrieve All Houses
@@ -87,24 +86,46 @@ curl "https://cloud.airhost.co/api/v1/houses"
   -H "APPID: APIKEY_FROM_AIRHOST"
 ```
 
-
 > JSON response:
 
 ```json
 {
-	"data":[{
-		"id": 1,
-		"name": "AirHost Hotel No. 1",
-		"rooms": [
-			{
-				"id":1,
-				"name":"Double Bedroom"
-			}
-		]
-	}],
-	"meta":{
-		"total_pages":10,
-		"total_count":100
+	"data": [
+		{
+			"id": 409,
+			"name": "AirHost Hotel No. 1",
+			"house_photos": null,
+			"address": null,
+			"rooms": [
+				{
+					"id": 421,
+					"name": "Double Bedroom"
+				}
+			]
+		},
+		{
+			"id": 401,
+			"name": "AirHost Hotel No. 2",
+			"house_photos": [
+				"/uploads/house_picture/22/picture/1567674820-f07c678d-725f-59d3-be3a-30926e14ed98_636364134932167010.jpeg",
+				"/uploads/house_picture/21/picture/1567674820-f07c678d-725f-59d3-be3a-30926e14ed98.jpeg"
+			],
+			"address": "Address ABC, Street ABC, Japan",
+			"rooms": [
+				{
+					"id": 4241,
+					"name": "Single Bedroom"
+				},
+				{
+					"id": 401,
+					"name": "Double Bedroom"
+				}
+			]
+		}
+	],
+	"meta": {
+		"total_pages": 1,
+		"total_count": 2
 	}
 }
 ```
@@ -129,13 +150,15 @@ Refer to meta.total_count and meta.total_pages and for total result count and to
 
 ### Response Properties
 
-Parameter   | Description     | Mandatory 
---          | --              | --
-name        | Property Name   | true
-id          | Property ID     | true
-rooms       | Array of Rooms  | true
-rooms[id]   | Room Type ID    | true
-rooms[name] | Room Type Name  | true
+Parameter    | Description         | Mandatory 
+--           | --                  | --
+id           | Property ID         | true
+name         | Property Name       | true
+house_photos | Array of Photo URLs | true
+address      | Address             | true
+rooms        | Array of Rooms      | true
+rooms[id]    | Room Type ID        | true
+rooms[name]  | Room Type Name      | true
 
 <aside class="success">
 These settings can be set via Airhost PMS UI.
@@ -156,7 +179,7 @@ curl "https://cloud.airhost.co/api/v1/bookings"
     }
 ```
 ```ruby
-    updated_at = Time.zone.now.to_i
+	updated_at = Time.zone.now.to_i
 ```
 
 > JSON response:
@@ -200,18 +223,6 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 			"id": 1,
 			"name": "Airhost Hotel"
 		},
-		"booking_fees": [{
-			"id":3,
-			"fee_type":"transaction_fee",
-			"description":"Stripe service fee",
-			"dtdate":null,"amount":1008.0,
-			"included":true,"currency":null,
-			"paid":true,"per_night":false,
-			"per_person":false,
-			"percentage":0,
-			"created_at":"2018-12-11T12:17:43.378+09:00",
-			"updated_at":"2018-12-15T01:02:18.800+09:00"
-		}],
 		"fees":[{
 			"paid":false,
 			"fee_type":"per_day",
@@ -226,7 +237,18 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 			"fee_type": "cleaning_fee",
 			"amount": "123.0"
 		}],
-		"booking_fees": [],
+		"booking_fees": [{
+			"id":3,
+			"fee_type":"transaction_fee",
+			"description":"Stripe service fee",
+			"dtdate":null,"amount":1008.0,
+			"included":true,"currency":null,
+			"paid":true,"per_night":false,
+			"per_person":false,
+			"percentage":0,
+			"created_at":"2018-12-11T12:17:43.378+09:00",
+			"updated_at":"2018-12-15T01:02:18.800+09:00"
+		}],
 		"checkin_code": 9760,
 		"pre_checkin_url": "http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e",
 		"checkin_information": null,
@@ -258,7 +280,7 @@ updated_at | Bookings updated after this time (Epoch time in seconds) | true
 page       | Page number                                              | false
 
 <aside class="warning">
-1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
+1. <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
 2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
 </aside>
 
@@ -276,7 +298,7 @@ status                        | :pending, :confirmed, :cancelled, :blocked, :ove
 checkin_type                  | self_checkin or operator_checkin                                                   | false
 checkin_status                | :before_checkin, :checked_in, :checked_out                                         | false
 source                        | OTA name                                                                           | true
-created_t                     | Time booking was created E.g. "2018-01-07T16:00:00.000+09:00"                      | true
+created_at                    | Time booking was created E.g. "2018-01-07T16:00:00.000+09:00"                      | true
 updated_at                    | Time booking was last updated E.g. "2018-01-07T16:00:00.000+09:00"                 | true
 payment_status                | :not_paid, :paid, :partial_paid, :over_paid, :void                                 | true
 currency                      | Currency for this booking                                                          | true
