@@ -443,11 +443,6 @@ These settings can be set via Airhost PMS UI.
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Airhost Hotel"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nikolai Ramstetter"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nikolai-smxiddb2jijh8gjt@guest.airbnb.com"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"booking_fees"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"fee_type"</span><span class="p">:</span><span class="s2">"transaction_fee"</span><span class="p">,</span><span class="w">
@@ -556,6 +551,11 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>true</td>
 </tr>
 <tr>
+<td>status</td>
+<td>:pending, :confirmed, :cancelled, :blocked, :overlapped, :closed, :user_cancelled</td>
+<td>true</td>
+</tr>
+<tr>
 <td>checkin_type</td>
 <td>self_checkin or operator_checkin</td>
 <td>false</td>
@@ -571,6 +571,41 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>true</td>
 </tr>
 <tr>
+<td>created_t</td>
+<td>Time booking was created E.g. &quot;2018-01-07T16:00:00.000+09:00&quot;</td>
+<td>true</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>Time booking was last updated E.g. &quot;2018-01-07T16:00:00.000+09:00&quot;</td>
+<td>true</td>
+</tr>
+<tr>
+<td>payment_status</td>
+<td>:not_paid, :paid, :partial_paid, :over_paid, :void</td>
+<td>true</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>Currency for this booking</td>
+<td>true</td>
+</tr>
+<tr>
+<td>reservation_site</td>
+<td>Reservation source</td>
+<td>false</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>:ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash</td>
+<td>false</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Guest information</td>
+<td>true</td>
+</tr>
+<tr>
 <td>room</td>
 <td>Room information</td>
 <td>true</td>
@@ -581,9 +616,9 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>true</td>
 </tr>
 <tr>
-<td>user</td>
-<td>Guest information</td>
-<td>true</td>
+<td>fees</td>
+<td>Charges from OTA</td>
+<td>false</td>
 </tr>
 <tr>
 <td>booking_fees</td>
@@ -591,28 +626,33 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>false</td>
 </tr>
 <tr>
-<td>fees</td>
-<td>Charges from OTA</td>
+<td>checkin_code</td>
+<td>Same as Booking ID in Airhost</td>
 <td>false</td>
 </tr>
 <tr>
-<td>payment_status</td>
-<td>:not_paid, :paid, :partial_paid, :over_paid</td>
+<td>pre_checkin_url</td>
+<td>Pre checkin URL</td>
 <td>false</td>
 </tr>
 <tr>
-<td>payment_method</td>
-<td>:ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash</td>
+<td>checkin_information</td>
+<td>Checkin Information</td>
 <td>false</td>
 </tr>
 <tr>
-<td>currency</td>
-<td>Currency for this booking</td>
-<td>true</td>
+<td>room_code</td>
+<td>Pin number of lock if IOT access is enabled</td>
+<td>false</td>
 </tr>
 <tr>
-<td>reservation_site</td>
-<td>Reservation source</td>
+<td>key_doc_url</td>
+<td>Information for key for house</td>
+<td>false</td>
+</tr>
+<tr>
+<td>checkin_completion_percentage</td>
+<td>Pre checkin guest information submission completion rate</td>
 <td>false</td>
 </tr>
 </tbody></table>
