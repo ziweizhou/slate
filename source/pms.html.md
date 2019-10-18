@@ -72,8 +72,8 @@ Base64(username:password) is host's username and password with the character ":"
 
 <aside class="notice">
 You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.<br/>
-Production API URL is cloud.airhost.co<br/>
-Test API URL is test.airhost.co
+Production API URL: <b>cloud.airhost.co</b><br/>
+Test API URL: <b>test.airhost.co</b>
 </aside>
 
 # House
@@ -316,7 +316,7 @@ room_code                     | Pin number of lock if IOT access is enabled     
 key_doc_url                   | Information for key for house                                                      | false
 checkin_completion_percentage | Pre checkin guest information submission completion rate                           | false
 
-## Create a Booking.
+## Create a Booking
 
 ```shell
 curl -X POST "https://cloud.airhost.co/api/v1/bookings"
@@ -400,7 +400,7 @@ user[country]     | Guest country code                              | false
 user[address]     | Guest address                                   | false
 
 
-## Update a Booking.
+## Update a Booking
 
 ```shell
 curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:id"
