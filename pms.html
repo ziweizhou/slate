@@ -308,7 +308,7 @@ Test API URL is test.airhost.co
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>JSON response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:[{</span><span class="w">
@@ -327,29 +327,33 @@ Test API URL is test.airhost.co
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all the PMS connected houses with room information.<br/>
-Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<p>This endpoint retrieves all the PMS connected houses with room information.</p>
+<h3 id='api-endpoint'>API Endpoint</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/houses</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>true</td>
-<td>The house&#39;s ID</td>
+<td>yes</td>
+<td>The house&#39;s ID number</td>
 </tr>
 <tr>
 <td>page</td>
-<td>false</td>
-<td>to retrieve houses from paginated result. (if meta.total_pages &gt; 1)</td>
+<td>no</td>
+<td>Page number*</td>
 </tr>
 </tbody></table>
+
+<aside class="success">
+Each request has a maximum of 10 results. If more than 10 results, use page number to get other results.<br/>
+Refer to meta.total_count and meta.total_pages and for total result count and total page count.
+</aside>
 <h3 id='return-data-parameters'>Return Data Parameters</h3>
 <table><thead>
 <tr>
@@ -399,7 +403,7 @@ These settings can be set via Airhost PMS UI.
 </span></code></pre><pre class="highlight ruby tab-ruby"><code>    <span class="n">updated_at</span> <span class="o">=</span> <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span><span class="p">.</span><span class="nf">now</span><span class="p">.</span><span class="nf">to_i</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>JSON response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -487,7 +491,7 @@ These settings can be set via Airhost PMS UI.
 </span></code></pre>
 <p>This endpoint retrieves all bookings from one house.<br/>
 Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='api-endpoint-2'>API Endpoint</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/bookings</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -638,7 +642,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
     }'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>JSON response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1358</span><span class="p">,</span><span class="w">
@@ -670,7 +674,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='api-endpoint-3'>API Endpoint</h3>
 <p><code>POST http://cloud.airhost.co/api/v1/bookings</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -779,7 +783,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 }'</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>JSON response:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABCDEFG"</span><span class="p">,</span><span class="w">
@@ -807,7 +811,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint add a guest into this booking</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='api-endpoint-4'>API Endpoint</h3>
 <p><code>PUT http://cloud.airhost.co/api/v1/bookings/:id</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
