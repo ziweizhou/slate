@@ -330,23 +330,23 @@ Test API URL is test.airhost.co
 <p>This endpoint retrieves all the PMS connected houses with room information.</p>
 <h3 id='api-endpoint'>API Endpoint</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/houses</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='request-parameters'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
 <th>Description</th>
+<th>Mandatory</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>yes</td>
 <td>The house&#39;s ID number</td>
+<td>true</td>
 </tr>
 <tr>
 <td>page</td>
-<td>no</td>
 <td>Page number</td>
+<td>false</td>
 </tr>
 </tbody></table>
 
@@ -354,11 +354,11 @@ Test API URL is test.airhost.co
 Results are paginated. Add page as query parameter for other pages.<br/>
 Refer to meta.total_count and meta.total_pages and for total result count and total page count.
 </aside>
-<h3 id='return-data-parameters'>Return Data Parameters</h3>
+<h3 id='response-properties'>Response Properties</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -493,11 +493,11 @@ These settings can be set via Airhost PMS UI.
 Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.</p>
 <h3 id='api-endpoint-2'>API Endpoint</h3>
 <p><code>GET https://cloud.airhost.co/api/v1/bookings</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='request-parameters-2'>Request Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -517,11 +517,11 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>to retrieve bookings from paginated result. (if meta.total_pages &gt; 1)</td>
 </tr>
 </tbody></table>
-<h3 id='return-data-parameters-2'>Return Data Parameters</h3>
+<h3 id='response-properties-2'>Response Properties</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -680,7 +680,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
@@ -817,7 +817,7 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
