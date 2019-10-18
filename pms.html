@@ -512,6 +512,11 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>false</td>
 </tr>
 </tbody></table>
+
+<aside class="warning">
+1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
+2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
+</aside>
 <h3 id='response-properties-2'>Response Properties</h3>
 <table><thead>
 <tr>
@@ -656,11 +661,6 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <td>false</td>
 </tr>
 </tbody></table>
-
-<aside class="warning">
-1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
-2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
-</aside>
 <h2 id='create-a-booking'>Create a Booking.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://cloud.airhost.co/api/v1/bookings"</span>
   -H <span class="s2">"Authorization: Basic Base64(username:password)"</span>
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
