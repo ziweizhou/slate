@@ -109,7 +109,7 @@ curl "https://cloud.airhost.co/api/v1/houses"
 }
 ```
 
-This endpoint retrieves all the PMS connected houses with room information.
+This endpoint retrieves all the PMS connected houses with room information.<br/>
 Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
 
 ### HTTP Request
@@ -243,7 +243,7 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 }
 ```
 
-This endpoint retrieves all bookings from one house.
+This endpoint retrieves all bookings from one house.<br/>
 Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
 
 ### HTTP Request
