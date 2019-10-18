@@ -65,14 +65,14 @@ If you don't have one, please contact [Airhost Support](mailto:hello@airhost.co)
 
 Airhost expects for the API key plus the Authentication Key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: Basic Base64(username:password)`
+`Authorization: Basic Base64(username:password)`<br/>
 `APPID: APIKEY_FROM_AIRHOST`
 
 Base64(username:password) is host's username and password with the character ":" in the middle, then encode with base64 format.
 
 <aside class="notice">
-You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.
-Production API URL is cloud.airhost.co
+You must replace <code>APIKEY_FROM_AIRHOST</code> with your personal API key.<br/>
+Production API URL is cloud.airhost.co<br/>
 Test API URL is test.airhost.co
 </aside>
 
@@ -88,50 +88,54 @@ curl "https://cloud.airhost.co/api/v1/houses"
 ```
 
 
-> The above command returns JSON structured like this:
+> JSON response:
 
 ```json
 {
-    "data":[{
-        "id": 1,
-        "name": "AirHost Hotel No. 1",
-        "rooms": [
-            {
-                "id":1,
-                "name":"Double Bedroom"
-            }
-        ]
-    }],
-    "meta":{
-        "total_pages":10,
-        "total_count":100
-    }
+	"data":[{
+		"id": 1,
+		"name": "AirHost Hotel No. 1",
+		"rooms": [
+			{
+				"id":1,
+				"name":"Double Bedroom"
+			}
+		]
+	}],
+	"meta":{
+		"total_pages":10,
+		"total_count":100
+	}
 }
 ```
 
-This endpoint retrieves all the PMS connected houses with room information.<br/>
-Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
+This endpoint retrieves all the PMS connected houses with room information.
 
-### HTTP Request
+### API Endpoint
 
 `GET https://cloud.airhost.co/api/v1/houses`
 
-### Query Parameters
+### Request Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-id | true | The house's ID
-page| false | to retrieve houses from paginated result. (if meta.total_pages > 1)
+Parameter   | Description    | Mandatory 
+--          | --             | --
+id          | House ID		   | true
+page        | Page number    | false
 
-### Return Data Parameters
+<aside class="warning">
+Results are paginated. Add page as query parameter for other pages.<br/>
+Refer to meta.total_count and meta.total_pages and for total result count and total page count.
+</aside>
 
-Parameter | Default | Description
---------- | ------- | -----------
-name | true | Property Name
-id | true | Property ID
-rooms | true | Array of Rooms
-rooms[id] | true | Room Type ID
-rooms[name] | true | Room Type Name
+### Response Properties
+
+Parameter   | Description     | Mandatory 
+--          | --              | --
+name        | Property Name   | true
+id          | Property ID     | true
+rooms       | Array of Rooms  | true
+rooms[id]   | Room Type ID    | true
+rooms[name] | Room Type Name  | true
 
 <aside class="success">
 These settings can be set via Airhost PMS UI.
@@ -155,138 +159,140 @@ curl "https://cloud.airhost.co/api/v1/bookings"
     updated_at = Time.zone.now.to_i
 ```
 
-> The above command returns JSON structured like this:
+> JSON response:
 
 ```json
 {
-    "data": [
-    {
-        "id": 1358,
-        "uid": "HMMJTRSTTE",
-        "guestnum": 3,
-        "summary": "Nikolai Ramstetter (HMMJTRSTTE)",
-        "dtstart": "2018-04-07T16:00:00.000+09:00",
-        "dtend": "2018-04-11T11:00:00.000+09:00",
-        "status": "confirmed",
-        "checkin_type": "self_checkin",
-        "checkin_status": "checked_in",
-        "source": "airbnb",
-        "created_at": "2018-01-07T16:00:00.000+09:00",
-        "updated_at": "2018-01-11T11:00:00.000+09:00",
-        "payment_status": "paid",
-        "currency": "JPY",
-        "reservation_site": "Booking.COM",
-        "payment_method": "hotel_collect",
-        "user": {
-            "name": "Nikolai Ramstetter",
-            "email": "nikolai@gmail.com",
-            "language": "en",
-            "phone": "1234567",
-            "address": null,
-            "country": "Spain",
-            "postal_code": null
-        },
-        "room":
-        {
-            "id": 123,
-            "name": "One Bedroom",
-            "room_unit": "201"
-        },
-        "house":{
-            "id": 1,
-            "name": "Airhost Hotel"
-        },
-        "user":
-        {
-            "name": "Nikolai Ramstetter",
-            "email": "nikolai-smxiddb2jijh8gjt@guest.airbnb.com"
-        },
-        "booking_fees": [{
-            "id":3,
-            "fee_type":"transaction_fee",
-            "description":"Stripe service fee",
-            "dtdate":null,"amount":1008.0,
-            "included":true,"currency":null,
-            "paid":true,"per_night":false,
-            "per_person":false,
-            "percentage":0,
-            "created_at":"2018-12-11T12:17:43.378+09:00",
-            "updated_at":"2018-12-15T01:02:18.800+09:00"
-        }],
-        "fees":[{
-            "paid":false,
-            "fee_type":"per_day",
-            "amount":7700.0,
-            "date":"2020-04-08",
-            "description":"Standard Rate",
-            "ota_collect":false,
-            "included":false
-            },
-            {"included": false,
-            "paid": true,
-            "fee_type": "cleaning_fee",
-            "amount": "123.0"
-        }],
-        "booking_fees": [],
-        "checkin_code": 9760,
-        "pre_checkin_url": "http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e",
-        "checkin_information": null,
-        "room_code": null,
-        "key_doc_url": null,
-        "checkin_completion_percentage": 80
-    }],
-    "meta":
-    {
-        "total_pages": 1,
-        "total_count": 1
-    }
+	"data": [
+	{
+		"id": 1358,
+		"uid": "HMMJTRSTTE",
+		"guestnum": 3,
+		"summary": "Nikolai Ramstetter (HMMJTRSTTE)",
+		"dtstart": "2018-04-07T16:00:00.000+09:00",
+		"dtend": "2018-04-11T11:00:00.000+09:00",
+		"status": "confirmed",
+		"checkin_type": "self_checkin",
+		"checkin_status": "checked_in",
+		"source": "airbnb",
+		"created_at": "2018-01-07T16:00:00.000+09:00",
+		"updated_at": "2018-01-11T11:00:00.000+09:00",
+		"payment_status": "paid",
+		"currency": "JPY",
+		"reservation_site": "Booking.COM",
+		"payment_method": "hotel_collect",
+		"user": {
+			"name": "Nikolai Ramstetter",
+			"email": "nikolai@gmail.com",
+			"language": "en",
+			"phone": "1234567",
+			"address": null,
+			"country": "Spain",
+			"postal_code": null
+		},
+		"room":
+		{
+			"id": 123,
+			"name": "One Bedroom",
+			"room_unit": "201"
+		},
+		"house":{
+			"id": 1,
+			"name": "Airhost Hotel"
+		},
+		"booking_fees": [{
+			"id":3,
+			"fee_type":"transaction_fee",
+			"description":"Stripe service fee",
+			"dtdate":null,"amount":1008.0,
+			"included":true,"currency":null,
+			"paid":true,"per_night":false,
+			"per_person":false,
+			"percentage":0,
+			"created_at":"2018-12-11T12:17:43.378+09:00",
+			"updated_at":"2018-12-15T01:02:18.800+09:00"
+		}],
+		"fees":[{
+			"paid":false,
+			"fee_type":"per_day",
+			"amount":7700.0,
+			"date":"2020-04-08",
+			"description":"Standard Rate",
+			"ota_collect":false,
+			"included":false
+			},
+			{"included": false,
+			"paid": true,
+			"fee_type": "cleaning_fee",
+			"amount": "123.0"
+		}],
+		"booking_fees": [],
+		"checkin_code": 9760,
+		"pre_checkin_url": "http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e",
+		"checkin_information": null,
+		"room_code": null,
+		"key_doc_url": null,
+		"checkin_completion_percentage": 80
+	}],
+	"meta":
+	{
+		"total_pages": 1,
+		"total_count": 1
+	}
 }
 ```
 
 This endpoint retrieves all bookings from one house.<br/>
 Each request has a maximum of 10 results. If more than 10 results, use page 2 to get other results.
 
-### HTTP Request
+### API Endpoint
 
 `GET https://cloud.airhost.co/api/v1/bookings`
 
-### Query Parameters
+### Request Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-house_id | true | Search booking by House ID
-updated_at | true | bookings updated after this time (epoch time in seconds)
-page| false | to retrieve bookings from paginated result. (if meta.total_pages > 1)
-
-### Return Data Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-id | true | Booking ID in Airhost
-uid | true | Booking ID from OTA
-guestnum | true | number of guests
-summary | true | Booking's description
-dtstart | true | checkin date
-dtend | true | checkout date
-checkin_type | false | self_checkin or operator_checkin
-checkin_status | false | :before_checkin, :checked_in, :checked_out
-source | true | OTA name
-room | true | room information
-house | true | property information
-user | true | guest information
-booking_fees | false | document any additional charges
-fees | false | charges from OTA
-payment_status | false | :not_paid, :paid, :partial_paid, :over_paid
-payment_method | false | :ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash
-currency | true | currency for this booking
-reservation_site | false | reservation is made from. 
-
+Parameter  | Description                                              | Mandatory
+--         | --                                                       | --
+house_id   | Search booking by House ID                               | true
+updated_at | Bookings updated after this time (Epoch time in seconds) | true
+page       | Page number                                              | false
 
 <aside class="warning">
 1. The <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />
 2. To ensure a most updated listed of bookings will be delivery to your end, a <b>hourly</b> data pull is suggested.
 </aside>
 
+### Response Properties
+
+Parameter                     | Description                                                                        | Mandatory
+--                            | --                                                                                 | --
+id                            | Booking ID in Airhost                                                              | true
+uid                           | Booking ID from OTA                                                                | true
+guestnum                      | Number of guests                                                                   | true
+summary                       | Booking's description                                                              | true
+dtstart                       | Checkin date                                                                       | true
+dtend                         | Checkout date                                                                      | true
+status                        | :pending, :confirmed, :cancelled, :blocked, :overlapped, :closed, :user_cancelled  | true
+checkin_type                  | self_checkin or operator_checkin                                                   | false
+checkin_status                | :before_checkin, :checked_in, :checked_out                                         | false
+source                        | OTA name                                                                           | true
+created_t                     | Time booking was created E.g. "2018-01-07T16:00:00.000+09:00"                      | true
+updated_at                    | Time booking was last updated E.g. "2018-01-07T16:00:00.000+09:00"                 | true
+payment_status                | :not_paid, :paid, :partial_paid, :over_paid, :void                                 | true
+currency                      | Currency for this booking                                                          | true
+reservation_site              | Reservation source				                                                         | false
+payment_method                | :ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash           | false
+user                          | Guest information                                                                  | true
+room                          | Room information                                                                   | true
+house                         | Property information                                                               | true
+fees                          | Charges from OTA                                                                   | false
+booking_fees                  | Document any additional charges                                                    | false
+checkin_code                  | Same as Booking ID in Airhost                                                      | false
+pre_checkin_url               | Pre checkin URL                                                                    | false
+checkin_information           | Checkin Information                                                                | false
+room_code                     | Pin number of lock if IOT access is enabled                                        | false
+key_doc_url                   | Information for key for house                                                      | false
+checkin_completion_percentage | Pre checkin guest information submission completion rate                           | false
 
 ## Create a Booking.
 
@@ -306,70 +312,70 @@ curl -X POST "https://cloud.airhost.co/api/v1/bookings"
         "reservation_site": "your site name"
         "user":
         {
-            "name": "John Smith",
-            "email": "john_smith@gmail.com"
+					"name": "John Smith",
+					"email": "john_smith@gmail.com"
         }
     }'
 ```
 
-> The above command returns JSON structured like this:
+> JSON response:
 
 ```json
 {
-    "id": 1358,
-    "uid": "ABCDEFG",
-    "guestnum": 3,
-    "summary": "John Smith (ABCDEFG)",
-    "description": "Need no smoking room",
-    "dtstart": "2018-04-07T16:00:00.000+09:00",
-    "dtend": "2018-04-11T11:00:00.000+09:00",
-    "room":
-    {
-        "id": 123,
-        "name": "One Bedroom"
-    },
-    "house":{
-        "id": 1,
-        "name": "Airhost Hotel"
-    },
-    "reservation_site": "your site name",
-    "user":
-    {
-        "name": "John Smith",
-        "email": "john_smith@gmail.com",
-        "phone": "123456789",
-        "language": "en",
-        "country": "JP",
-        "address": "123 test street"
-    }
+	"id": 1358,
+	"uid": "ABCDEFG",
+	"guestnum": 3,
+	"summary": "John Smith (ABCDEFG)",
+	"description": "Need no smoking room",
+	"dtstart": "2018-04-07T16:00:00.000+09:00",
+	"dtend": "2018-04-11T11:00:00.000+09:00",
+	"room":
+	{
+		"id": 123,
+		"name": "One Bedroom"
+	},
+	"house":{
+		"id": 1,
+		"name": "Airhost Hotel"
+	},
+	"reservation_site": "your site name",
+	"user":
+	{
+		"name": "John Smith",
+		"email": "john_smith@gmail.com",
+		"phone": "123456789",
+		"language": "en",
+		"country": "JP",
+		"address": "123 test street"
+	}
 }
 ```
 
 This endpoint add a guest into this booking
 
-### HTTP Request
+### API Endpoint
 
 `POST http://cloud.airhost.co/api/v1/bookings`
 
 ### URL Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-uid | true | The unique identify of this booking (could be the ID in your system)
-guestnum | true | Number of the guest.
-summary | true | Reservation summary
-description | false | Reservation details or guest remarks
-dtstart | true |  checkin date in ISO 8601 format with timezone.
-dtend | true |  checkout date in ISO 8601 format with timezone.
-room_id | true | room ID from airhost
-house_id | true | house ID from airhost
-reservation_site| false| your website name or company name or the OTA name
-user[name] | true | guest name
-user[email] | true | guest email address
-user[phone] | true | guest phone number
-user[language] | true | guest preferred language, two letters format.
-user[country] | false | guest country code
-user[address] | false | guest address
+Parameter         | Description                                     | Mandatory
+--                | --                                              | --
+uid               | Your unique ID for this booking                 | true
+guestnum          | Number of guests                                | true
+summary           | Reservation summary                             | true
+description       | Reservation details or guest remarks            | false
+dtstart           | Checkin date in ISO 8601 format with timezone.  | true
+dtend             | Checkout date in ISO 8601 format with timezone. | true
+room_id           | Room ID from airhost                            | true
+house_id          | House ID from airhost                           | true
+reservation_site  | Website name or company name or the OTA name    | false
+user[name]        | Guest name                                      | true
+user[email]       | Guest email address                             | true
+user[phone]       | Guest phone number                              | true
+user[language]    | Guest preferred language, two letters format.   | true
+user[country]     | Guest country code                              | false
+user[address]     | Guest address                                   | false
 
 
 ## Update a Booking.
@@ -398,44 +404,44 @@ curl -X PUT "https://cloud.airhost.co/api/v1/bookings/:id"
 }'
 ```
 
-> The above command returns JSON structured like this:
+> JSON response:
 
 ```json
 {
-    "uid": "ABCDEFG",
-    "guestnum": 3,
-    "summary": "John Smith (ABCDEFG)",
-    "dtstart": "2018-04-07T16:00:00.000+09:00",
-    "dtend": "2018-04-11T11:00:00.000+09:00",
-    "status": "confirmed",
-    "checkin_status": "checked_in",
-    "reservation_site": "airbnb",
-    "room":
-    {
-        "id": 123,
-        "name": "One Bedroom"
-    },
-    "house":{
-        "id": 1,
-        "name": "Airhost Hotel"
-    },
-    "user":
-    {
-        "name": "John Smith",
-        "email": "john_smith@gmail.com"
-    }
+	"uid": "ABCDEFG",
+	"guestnum": 3,
+	"summary": "John Smith (ABCDEFG)",
+	"dtstart": "2018-04-07T16:00:00.000+09:00",
+	"dtend": "2018-04-11T11:00:00.000+09:00",
+	"status": "confirmed",
+	"checkin_status": "checked_in",
+	"reservation_site": "airbnb",
+	"room":
+	{
+		"id": 123,
+		"name": "One Bedroom"
+	},
+	"house":{
+		"id": 1,
+		"name": "Airhost Hotel"
+	},
+	"user":
+	{
+		"name": "John Smith",
+		"email": "john_smith@gmail.com"
+	}
 }
 ```
 
 This endpoint add a guest into this booking
 
-### HTTP Request
+### API Endpoint
 
 `PUT http://cloud.airhost.co/api/v1/bookings/:id`
 
 ### URL Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-id | true | The Booking's ID
-status| true | possible values are ["confirmed", "cancelled"]
+Parameter | Description                | Mandatory
+--        | --                         | --
+id        | The Booking's ID           | true
+status    | "confirmed" or "cancelled" | true

@@ -3,7 +3,7 @@
 The Airhost API uses the following error codes:
 
 
-Error Code | Meaning
+Error Code | Description
 ---------- | -------
 400 | Bad Request -- Your request is invalid (missing_required_paramter)
 401 | Unauthorized -- Your API key is wrong (invalid_api_key) or \n  invalid_username_password: invalid username and password, please make sure they are base64 encoded.\n invalid_api_call: you are not authorized to use this API endpoint.
