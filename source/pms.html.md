@@ -232,11 +232,16 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 			"ota_collect":false,
 			"included":false
 			},
-			{"included": false,
-			"paid": true,
-			"fee_type": "cleaning_fee",
-			"amount": "123.0"
-		}],
+			{
+				"fee_type": "channel_fee",
+				"included": true,
+				"amount": 1871
+			},
+			{
+				"fee_type": "cleaning_fee",
+				"included": true,
+				"amount": 2000
+			}],
 		"booking_fees": [{
 			"id":3,
 			"fee_type":"transaction_fee",
@@ -467,3 +472,6 @@ Parameter | Description                | Mandatory
 --        | --                         | --
 id        | The Booking's ID           | true
 status    | "confirmed" or "cancelled" | true
+
+
+3
