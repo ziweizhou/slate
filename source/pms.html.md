@@ -254,6 +254,11 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 			"created_at":"2018-12-11T12:17:43.378+09:00",
 			"updated_at":"2018-12-15T01:02:18.800+09:00"
 		}],
+		"tasks": [{
+			"type": "checkout",
+			"date": "2019-07-22",
+			"status": "pending"
+		}],
 		"checkin_code": 9760,
 		"pre_checkin_url": "http://airhost/en/checkin/bookings/2b4e456f-abcd-efgh-ijkl-cfb76bb1bf1e",
 		"checkin_information": null,
@@ -307,13 +312,14 @@ created_at                    | Time booking was created E.g. "2018-01-07T16:00:
 updated_at                    | Time booking was last updated E.g. "2018-01-07T16:00:00.000+09:00"                 | true
 payment_status                | :not_paid, :paid, :partial_paid, :over_paid, :void                                 | true
 currency                      | Currency for this booking                                                          | true
-reservation_site              | Reservation source				                                                         | false
+reservation_site              | Reservation source				                                                   | false
 payment_method                | :ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash           | false
 user                          | Guest information                                                                  | true
 room                          | Room information                                                                   | true
 house                         | Property information                                                               | true
 fees                          | Charges from OTA                                                                   | false
 booking_fees                  | Document any additional charges                                                    | false
+tasks          		          | Cleaning task details, if any                                                      | false
 checkin_code                  | Same as Booking ID in Airhost                                                      | false
 pre_checkin_url               | Pre checkin URL                                                                    | false
 checkin_information           | Checkin Information                                                                | false
