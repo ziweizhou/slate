@@ -507,6 +507,7 @@ These settings can be set via Airhost PMS UI.
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2018-12-11T12:17:43.378+09:00"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="s2">"2018-12-15T01:02:18.800+09:00"</span><span class="w">
         </span><span class="p">}],</span><span class="w">
+        </span><span class="s2">"cancellation_fee"</span><span class="p">:</span><span class="w"> </span><span class="mi">1008</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tasks"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
             </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"checkout"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-22"</span><span class="p">,</span><span class="w">
@@ -670,6 +671,11 @@ Each request has a maximum of 10 results. If more than 10 results, use page 2 to
 <tr>
 <td>booking_fees</td>
 <td>Document any additional charges</td>
+<td>false</td>
+</tr>
+<tr>
+<td>cancellation_fee</td>
+<td>Cancellation fees (For cancelled bookings)</td>
 <td>false</td>
 </tr>
 <tr>
