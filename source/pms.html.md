@@ -254,6 +254,7 @@ curl "https://cloud.airhost.co/api/v1/bookings"
 			"created_at":"2018-12-11T12:17:43.378+09:00",
 			"updated_at":"2018-12-15T01:02:18.800+09:00"
 		}],
+        "cancellation_fee": 1008,
 		"tasks": [{
 			"type": "checkout",
 			"date": "2019-07-22",
@@ -319,6 +320,7 @@ room                          | Room information                                
 house                         | Property information                                                               | true
 fees                          | Charges from OTA                                                                   | false
 booking_fees                  | Document any additional charges                                                    | false
+cancellation_fee              | Cancellation fees (For cancelled bookings)                                         | false
 tasks          		          | Cleaning task details, if any                                                      | false
 checkin_code                  | Same as Booking ID in Airhost                                                      | false
 pre_checkin_url               | Pre checkin URL                                                                    | false
