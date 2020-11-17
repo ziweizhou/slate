@@ -280,9 +280,8 @@ Parameter | Default | Description
 --------- | ------- | -----------
 house_id | true | Search booking by House ID
 updated_at | true | bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp
-status     | Search booking by booking status, one of these values: default, all, pending, confirmed, cancelled, blocked, overlapped, closed, user_cancelled. the default value will be returned the confirmed, cancelled and user_cancelled bookings. the all value will be returned all | false
-page       | Page number                                              | false
-
+status     | false | Search booking by booking status, one of these values: default, all, pending, confirmed, cancelled, blocked, overlapped, closed, user_cancelled. the default value will be returned the confirmed, cancelled and user_cancelled bookings. the all value will be returned all
+page       | false | Page number
 
 ### Return Data Parameters
 
