@@ -288,8 +288,8 @@ Parameter  | Description                                              | Mandator
 --         | --                                                       | --
 house_id   | Search booking by House ID                               | true
 updated_at | Bookings updated after this time (Epoch time in seconds) | true
-status     | Search booking by booking status, one of these values: default, all, pending, confirmed, cancelled, blocked, overlapped, closed, user_cancelled. the default value will be returned the confirmed, cancelled and user_cancelled bookings. the all value will be returned all | true
-page       | Page number                                              | false
+status     | Filter by booking status: default, all, pending, confirmed, cancelled, blocked, overlapped, closed, user_cancelled. Default will return confirmed + cancelled + user_cancelled bookings. | false
+page       | Page number											  | false
 
 <aside class="warning">
 1. <b>updated_at </b> is a integer field, it is a number represent time since the Unix Epoch <br />

@@ -255,7 +255,6 @@ curl "https://test.airhost.co/api/v1/bookings" \
             "included":false
             }
         ],
-        "cancellation_fee": 1008,
         "payment_status": "paid",
         "payment_method": "hotel_collect", 
         "currency": "JPY", 
@@ -280,10 +279,7 @@ This endpoint retrieves all bookings from one house.
 Parameter | Default | Description
 --------- | ------- | -----------
 house_id | true | Search booking by House ID
-updated_at | true | bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp
-status     | false | Search booking by booking status, one of these values: default, all, pending, confirmed, cancelled, blocked, overlapped, closed, user_cancelled. the default value will be returned the confirmed, cancelled and user_cancelled bookings. the all value will be returned all
-page       | false | Page number
-
+updated_at | true | Bookings updated after this time, it is in timestamp format. \n current epoch/unix timestamp
 ### Return Data Parameters
 
 Parameter | Default | Description
