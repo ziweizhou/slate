@@ -255,6 +255,7 @@ curl "https://test.airhost.co/api/v1/bookings" \
             "included":false
             }
         ],
+        "cancellation_fee": 1008,
         "payment_status": "paid",
         "payment_method": "hotel_collect", 
         "currency": "JPY", 
@@ -301,6 +302,7 @@ house | true | property information
 user | true | guest information
 booking_fees | false | document any additional charges
 fees | false | charges from OTA
+cancellation_fee | false | cancellation fees if booking is cancelled
 payment_status | false | :not_paid, :paid, :partial_paid, :over_paid
 payment_method | false | :ota_collect, :hotel_collect, :hotel_collect_credit, :hotel_collect_cash
 currency | true | currency for this booking
