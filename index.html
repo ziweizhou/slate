@@ -865,6 +865,7 @@ These settings can be set via Airhost PMS UI.
   -H <span class="s2">"APPID: APIKEY_FROM_AIRHOST"</span>
   --date <span class="s1">'{ \
     "payload": "some details about this transaction" \
+    "payment_method": "credit_card" \
     }'</span>
 </code></pre>
 <blockquote>
@@ -939,6 +940,11 @@ These settings can be set via Airhost PMS UI.
 <td>payload</td>
 <td>false</td>
 <td>transaction data to save to the server. Such as transactionID or Paid Amount</td>
+</tr>
+<tr>
+<td>payment_method</td>
+<td>true</td>
+<td>use one of the following: cash, credit_card, bank_transfer, ota_collect</td>
 </tr>
 </tbody></table>
 <h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
