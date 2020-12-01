@@ -416,6 +416,7 @@ curl -X POST "https://test.airhost.co/api/v1/checkin/bookings/:id/completed" \
   -H "APPID: APIKEY_FROM_AIRHOST"
   --date '{ \
     "payload": "some details about this transaction" \
+    "payment_method": "credit_card" \
     }'
 ```
 
@@ -484,6 +485,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 id | true | The Booking's ID
 payload | false | transaction data to save to the server. Such as transactionID or Paid Amount
+payment_method | true | use one of the following: cash, credit_card, bank_transfer, ota_collect
 
 
 ## Complete a Booking's checkin.
