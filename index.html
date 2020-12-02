@@ -944,7 +944,7 @@ These settings can be set via Airhost PMS UI.
 <tr>
 <td>payment_method</td>
 <td>false</td>
-<td>use one of the following: cash, credit_card, bank_transfer, ota_collect</td>
+<td>Choose one: cash, credit_card, bank_transfer. Defaults to cash if payment method is not provided.</td>
 </tr>
 </tbody></table>
 <h2 id='complete-a-booking-39-s-checkin'>Complete a Booking&#39;s checkin.</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://test.airhost.co/api/v1/checkin/bookings/:id/completed"</span> <span class="se">\</span>
