@@ -485,7 +485,7 @@ Parameter | Default | Description
 --------- | ------- | -----------
 id | true | The Booking's ID
 payload | false | transaction data to save to the server. Such as transactionID or Paid Amount
-payment_method | false | use one of the following: cash, credit_card, bank_transfer, ota_collect
+payment_method | false | Choose one: cash, credit_card, bank_transfer. Defaults to cash if payment method is not provided.
 
 
 ## Complete a Booking's checkin.
